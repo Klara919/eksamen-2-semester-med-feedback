@@ -1,0 +1,708 @@
+/* --- BODY & FONT --- */
+html, body { /* Body og html elementer får styling */
+    background-color: #F9E9D2; /* Sætter baggrundsfarven til lys beige */
+    font-family: 'Gotham light', sans-serif; /* Standard font for hele siden */
+    margin: 0; /* Fjerner browserens default margin */
+    padding: 0; /* Fjerner browserens default padding */
+    box-sizing: border-box; /* Padding og border tælles med i elementets samlede størrelse */
+    height: 100%; /* Body fylder hele vinduets højde */
+    display: flex; /* Gør body til en flex-container */
+    flex-direction: column; /* Flex-items lægges lodret */
+} 
+
+/*--- FONT IMPORTS ---*/
+/* Custom font "Gotham light" */
+@font-face { /* Definerer en brugerdefineret font */
+    font-family: "Gotham light"; /* Navn på fonten */
+    src:url("../fonts/gotham_light-webfont.woff") format("woff"); /* Placering af fontfil */
+    font-weight: 300; /* Let font-vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} /* Slut font-face */
+
+/* Custom font "Gotham bold" */
+@font-face { /* Definerer endnu en custom font */
+    font-family: "Gotham"; /* Navn */
+    src: url("../fonts/gotham_bold-webfont.woff") format("woff"); /* Placering af bold fontfil */
+    font-weight: 700; /* Bold vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} /* Slut font-face */
+
+
+/* --- NAVIGATION --- */
+.nav { /* Container for navigation */
+    display: flex; /* Brug flexbox til layout */
+    justify-content: center; /* Centrerer navigation horisontalt */
+    gap: 100px; /* Afstand mellem hvert link */
+    width: 100%; /* Fylder hele bredden */
+    padding: 0; /* Ingen indvendig padding */
+    font-family: 'Gotham light', sans-serif; /* Font for navigation */
+} /* Slut .nav */
+
+/* Links i navigation */
+.nav a { /* Styling af links i navigation */
+    border: 1px solid #D96209; /* Orange kant */
+    color: #D96209; /* Orange tekstfarve */
+    text-decoration: none; /* Ingen understregning */
+    padding: 10px 0; /* Lodret padding */
+    font-size: 14px; /* Skriftstørrelse */
+    font-weight: bold; /* Fed tekst */
+    border-radius: 10px; /* Rundede hjørner */
+    transition: all 0.3s ease; /* Smooth transition ved hover */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Let skygge */
+    width: 120px; /* Fast bredde */
+    text-align: center; /* Centreret tekst */
+} /* Slut navigation links */
+
+/* Hover-effekt for links */
+.nav a:hover { /* Når musen er over linket */
+    background-color: #D96209; /* Orange baggrund */
+    color: white; /* Hvid tekst */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Dybere skygge */
+    transform: translateY(-3px); /* Løftes let op */
+} /* Slut hover */
+
+/* Aktiv navigation */
+.nav a.active {
+    background-color: #D96209;
+    color: #F9E9D2;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+}
+
+/* --- LOGO --- */
+.logo-container { /* Container til logo */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centrerer horisontalt */
+    align-items: center; /* Centrerer vertikalt */
+    margin-top: -1vh; /* Lidt opad forskydning */
+}
+
+.logo { /* Logo billede */
+    max-width: 15vw; /* Maksimal bredde i forhold til viewport */
+}
+
+
+
+/* --- BURGER MENU & DROPDOWN --- */
+
+/* Dropdown container */
+.dropdown {
+    display: none;               /* Skjult på desktop */
+    position: absolute;          /* Absolut placering */
+    top: 2vh;                    /* Afstand fra toppen */
+    right: 0;                    /* Afstand fra højre */
+    z-index: 1000;               /* Lag over andre elementer */
+}
+
+/* Burger ikon */
+.burger-icon {
+    cursor: pointer;             /* Klikbar cursor */
+    display: flex;               /* Flexbox til centrering */
+    align-items: center;         /* Vertikal centrering */
+    justify-content: center;     /* Horisontal centrering */
+    padding: 4vw;                /* Indvendig afstand */
+    z-index: 1001;               /* Ligger over dropdown */
+}
+
+/* Kryds / luk-menu */
+.close-dropdown {
+    display: none;               /* Skjult som standard */
+    position: absolute;          /* Absolut placering */
+    top: 2vh;                     /* Afstand fra top */
+    right: 4vw;                   /* Afstand fra højre */
+    font-size: 2.5rem;            /* Stor størrelse */
+    color: #D96209;               /* Orange farve */
+    cursor: pointer;              /* Klikbar cursor */
+    z-index: 1010;                /* Ligger over dropdown */
+    user-select: none;            /* Kan ikke markeres */
+    transition: transform 0.2s ease; /* Smooth hover */
+}
+
+.close-dropdown:hover {
+    transform: scale(1.2);       /* Forstørres ved hover */
+    color: #F9E9D2;              /* Lys farve */
+}
+
+/* Vis kryds kun når menuen er åben */
+#burger-toggle:checked + .burger-icon + .dropdown-content .close-dropdown { 
+    display: block;
+}
+
+/* Dropdown menu container */
+.dropdown-content {
+    position: fixed;             /* Fast på skærmen */
+    top: 0;                      /* Øverst */
+    right: -100%;                /* Starter udenfor skærmen til højre */
+    width: 100%;                 /* Fuld bredde */
+    height: 100%;                /* Fuld højde */
+    background-color: #341510;   /* Mørk baggrund */
+    display: flex;               /* Flexbox layout */
+    flex-direction: column;      /* Lodret layout */
+    align-items: center;         /* Centrer horisontalt */
+    padding-top: calc(15vw + 40px); /* Afstand fra toppen afhængig af logo */
+    transition: right 0.4s ease-in-out; /* Smooth slide effekt */
+    z-index: 1000;               /* Lag */
+}
+
+/* Når burger-menuen er tjekket */
+#burger-toggle:checked + .burger-icon + .dropdown-content {
+    right: 0;                    /* Trækkes ind på skærmen */
+}
+
+/* Links i dropdown */
+.dropdown-content a {
+    padding: 4.5vh 0;            /* Lodret padding */
+    text-decoration: none;       /* Ingen underline */
+    color: white;                /* Hvid tekst */
+    font-size: 24px;             /* Stor tekst */
+    width: 100%;                 /* Fuld bredde */
+    text-align: center;          /* Centreret tekst */
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Let kant */
+    font-family: "Gotham light", sans-serif; 
+    font-weight: 300;            /* Let vægt */
+}
+
+/* Hover for dropdown links (ikke logo) */
+.dropdown-content a:not(.logo-link):hover {
+    background-color: #F9E9D2; 
+    color: #341510;
+}
+
+/* Logo i dropdown */
+.dropdown-content .logo { 
+    margin-top: -15vh;           /* Løftes op */
+    max-width: 50vw;             /* Maksimal størrelse */
+}
+
+/* Skjul checkbox */
+#burger-toggle {
+    display: none;
+}
+
+
+
+/* --- MAIN SECTIONS --- */
+/* Sektion container styling */
+section {
+    padding: 100px 20px; /* Lodret og vandret afstand */
+    text-align: center; /* Centrerer tekst */
+}
+
+/* --- ANTAL GÆSTER --- */
+.guest-buttons {
+    display: grid; /* Grid layout for knapper */
+    grid-template-columns: repeat(4, 100px); /* 4 kolonner á 100px */
+    gap: 20px; /* Afstand mellem knapper */
+    justify-content: center; /* Centrerer grid horisontalt */
+    margin-top: 60px; /* Top margin */
+    margin-bottom: 5vh; /* Bund margin */
+}
+
+.guest-btn {
+    width: 80px; /* Fast bredde */
+    height: 80px; /* Fast højde */
+    border-radius: 50%; /* Rund form */
+    border: none; /* Ingen kant */
+    background: transparent; /* Orange baggrund */
+    color: #D96209; /* Hvid tekst */
+    border:2px solid #D96209; /* Orange kant */
+    font-size: 22px; /* Stor tekst */
+    cursor: pointer; /* Klikbar cursor */
+    transition: 0.2s; /* Smooth animation */
+}
+
+.guest-btn:hover {
+    transform: scale(1.1); /* Forstørres lidt ved hover */
+    background: #D96209; /* Baggrund forbliver orange */
+    color: #F9E9D2;
+}
+
+/* Dekorativt billede i guest-section */
+#guest-section img {
+    margin-top: -25vh; /* Flyttes opad */
+    max-width: 100vh; /* Maksimal højde */
+    pointer-events: none; /* Klik ignoreres */
+}
+
+/* --- DATO- & TIDSVALG --- */
+#date-section {
+    padding-top: 5vh; /* Top margin */
+}
+
+/* Kalender container */
+.calendar {
+    max-width: 40vw; /* Maksimal bredde */
+    margin-top: 2vh; /* Top margin */
+    margin: 45px auto; /* Center horisontalt og top margin */
+    text-align: center; /* Centrerer tekst */
+}
+
+.calendar-header {
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Pilene spredes */
+    align-items: center; /* Vertikal centering */
+    margin-bottom: 20px; /* Bund margin */
+}
+
+.calendar-header button {
+    width: 35px; /* Pil-knapper bredde */
+    height: 45px; /* Pil-knapper højde */
+    background: transparent; /* Transparent baggrund */
+    color: #D96209; /* Orange farve */
+    font-size: 22px; /* Stor tekst */
+    border: none; /* Ingen kant */
+    cursor:pointer; /* Klikbar */
+    transition:0.2s; /* Smooth hover */
+}
+
+.calendar-header button:hover {
+    transform: scale(1.2); /* Forstørres */
+
+}
+
+.calendar-days button.disabled {
+  opacity: 0.4;      /* Gør knappen “sløret” */
+  cursor: not-allowed; /* Vis klik-ikke cursor */
+  background-color: #F9E9D2; /* Lys grå baggrund */
+  color: #D96209;       /* Mørk grå tekst */
+  opacity: 0.5;      /* Gør knappen “sløret” */
+}
+
+.selected-date {
+    font-weight: bold; /* Fed tekst */
+    font-size: 20px; /* Størrelse */
+}
+
+/* Ugedage */
+.calendar-weekdays {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(7, 1fr); /* 7 kolonner */
+    margin-bottom: 10px; /* Bund margin */
+    font-weight: bold; /* Fed */
+}
+
+/* Dage i kalenderen */
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 kolonner */
+    gap: 10px; /* Afstand mellem dage */
+}
+
+.calendar-days button {
+    width: 5vw; /* Knappens bredde */
+    height: 9vh; /* Knappens højde */
+    border-radius: 50%; /* Rund knap */
+    background: #F9E9D2; /* Orange baggrund */
+    color: #D96209; /* Hvid tekst */
+    border:2px solid #D96209; /* Orange kant */
+    font-size: 18px; /* Tekststørrelse */
+    cursor: pointer; /* Klikbar */
+    transition: 0.2s; /* Smooth hover */
+}
+
+.calendar-days button:hover {
+    transform: scale(1.1); /* Forstørres */
+    background: #D96209; /* Farve uændret */
+    color: #F9E9D2; /* Tekst bliver hvid */
+}
+
+.calendar-days button.selected {
+    background: #D96209; /* Orange baggrund */
+    transform: scale(1.1); /* Let forstørrelse */
+    color: #F9E9D2; /* Tekst bliver hvid */
+}
+
+/* Dekorativt billede */
+#date-section img {
+    margin-top: -30vh; 
+    max-width: 100vh;
+    pointer-events: none; /* Klik ignoreres */
+}
+
+/* --- TIDSVÆLGER --- */
+#time-section {
+    padding-top: 20vh; /* Top padding */
+}
+
+#time-buttons {
+    margin-top: 60px;
+    display: flex; /* Flex container */
+    flex-wrap: wrap; /* Wrap hvis nødvendigt */
+    gap: 20px; /* Afstand mellem knapper */
+    justify-content: center; /* Centrerer knapper */
+    max-width: 25vw; /* Maks bredde */
+    margin-left: auto; /* Center horisontalt */
+    margin-right: auto;
+}
+/* --- TIDSVÆLGER KNAPPER --- */
+.time-btn {
+    width: 5vw; /* Bredde som 5% af viewport width */
+    height: 9vh; /* Højde som 9% af viewport height */
+    background: #F9E9D2; /* Orange baggrund */
+    border-radius: 50px; /* Rundede ender */
+    border:2px solid #D96209; /* Orange kant */
+    font-size: 18px; /* Tekststørrelse */
+    color: #d96209; /* Hvid tekst */
+    cursor: pointer; /* Cursor ændres til pointer ved hover */
+    transition: 0.2s; /* Glidende transition ved hover eller state ændring */
+}
+
+.time-btn:hover {
+    transform: scale(1.08); /* Forstørres lidt ved hover */
+    background: #D96209; /* Farven forbliver den samme */
+    color: #F9E9D2; /* Teksten bliver hvid */
+}
+
+
+
+/* Dekorativt billede i tidssektionen */
+#time-section img {
+    margin-top: -20vh; /* Flyttes opad */
+    max-width: 100vh; /* Maksimal højde */
+    pointer-events: none; /* Klik ignoreres */
+}
+
+/* --- BORDVALG SEKTION --- */
+#table-selection h1 {
+    margin-top: -8vh; /* Flytter overskrift lidt op */
+}
+
+#random-table-btn {
+    background-color: transparent;  /* Baggrundsfarve */
+    color: #D96209;               /* Tekstfarve */
+    border: none;               /* Fjern standard kant */
+    border-radius: 10px;        /* Rundede hjørner */
+    border: 2px solid #D96209; /* Orange kant */
+    padding: 12px 24px;         /* Indvendig padding */
+    font-size: 16px;            /* Tekststørrelse */
+    cursor: pointer;            /* Pointer cursor ved hover */
+    transition: all 0.3s ease;  /* Glidende hover effekt */
+    margin-top: 2vh;            /* Lidt afstand ovenfor */
+}
+
+/* Hover-effekt */
+#random-table-btn:hover {
+    background-color: #D96209; /* Mørkere baggrund ved hover */
+    color:#F9E9D2;            /* Tekstfarve ændres */
+    transform: scale(1.05);    /* Lidt forstørrelse */
+}
+
+.room {
+    z-index: 1; /* Sikrer bordene ligger ovenpå baggrunden */
+    width: 100%; /* Fylder hele bredden */
+    max-width: 50vw; /* Maksimal bredde */
+    height: 70vh; /* Højde */
+    margin: 40px auto; /* Centrerer container horisontalt og giver top/bund margin */
+    position: relative; /* Absolutte bordpositioner placeres i forhold til denne container */
+    background: #F9E9D2; /* Lys baggrund */
+}
+
+.table {
+    width: 4.5vw; /* Bredde */
+    height: 7.8vh; /* Højde */
+    background: transparent; /* Orange baggrund */
+    color: #D96209; /* Hvid tekst */
+    border-radius: 6px; /* Lidt afrundede hjørner */
+    border:2px solid #D96209; /* Orange kant */
+    font-weight: bold; /* Fed tekst */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Horisontal centering af tekst */
+    align-items: center; /* Vertikal centering af tekst */
+    position: absolute; /* Absolut placering inden for .room */
+    cursor: pointer; /* Klikbar cursor */
+    transition: .2s; /* Glidende hover-effekt */
+    z-index: 2; /* Ovenpå .room baggrund */
+}
+
+.chosen {
+    font-size: 14px; /* Mindre tekst til valgt bord */
+}
+
+.circle { 
+    border-radius: 50%; /* Runde borde */
+}
+
+.table:hover { 
+    transform: scale(1.1); /* Forstørres ved hover */
+    background: #D96209; /* Farve uændret */
+    color: #F9E9D2; /* Tekst bliver hvid */
+}
+
+.bar {
+    background: #38221B; /* Mørk barfarve */
+    width: 40vw; /* Bredde */
+    height: 6vh; /* Højde */
+    position: absolute; /* Absolut placering */
+    bottom: 5%; /* Placering fra bund */
+    border-radius: 6px; /* Lidt rundede hjørner */
+}
+
+/* Formular sektion */
+  #form-section {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
+#form-section h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+  
+  /* Tekst deltajer */
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* To kolonner til detaljer */
+    padding-top: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    gap: 40px;
+  }
+  
+  /* Formularen */
+  form {
+    margin-top: 40px;
+    max-width: 600px;
+    margin: 0 auto;        
+    display: grid;
+    gap: 20px;
+    text-align: left;
+    padding-top: 50px;
+  }
+  
+  /* Oplysningsfelter */
+  input, button {
+    padding: 12px;
+    border: 2px solid #D96209;
+    border-radius: 8px;
+  }
+  
+  button[type="submit"] {
+    background: transparent;
+    color: #D96209;
+    cursor: pointer;
+    width: fit-content;
+    justify-self: center;
+    border: 2px solid #D96209;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+button[type="submit"]:hover {
+    transform: scale(1.1);
+    background: #D96209;
+    color: white;
+}
+  
+
+/* --- TAK FOR TILMELDING MODAL --- */
+#thankyou-modal {
+    display: none; /* Skjult som standard */
+    position: fixed; /* Fast position i viewport */
+    top: 0; left: 0; /* Placering øverst til venstre */
+    width: 100vw; /* Fylder hele bredden */
+    height: 100vh; /* Fylder hele højden */
+    background: rgba(0,0,0,0.6); /* Semi-transparent baggrund */
+    justify-content: center; /* Centerer indhold horisontalt */
+    align-items: center; /* Centerer indhold vertikalt */
+    z-index: 200; /* Ovenpå andre elementer */
+}
+
+#thankyou-modal.show {
+    display: flex; /* Vises når class show er tilføjet */
+}
+
+#thankyou-modal .thankyou-modal-content {
+    background: #fff; /* Hvid baggrund */
+    padding: 30px; /* Indvendig afstand */
+    border-radius: 12px; /* Rundede hjørner */
+    text-align: center; /* Centreret tekst */
+    max-width: 400px; /* Maks bredde */
+    width: 90%; /* Fylder 90% af parent container */
+}
+
+#thankyou-modal .btn {
+    display: inline-block; /* Inline-block for knap */
+    margin-top: 20px; /* Top margin */
+    padding: 10px 20px; /* Indvendig afstand */
+    background: #d96209; /* Orange baggrund */
+    color: #fff; /* Hvid tekst */
+    text-decoration: none; /* Ingen understregning */
+    border-radius: 10px; /* Afrundede hjørner */
+    font-weight: bold; /* Fed tekst */
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #341510; /* Mørk baggrund */
+    padding: 40px 20px; /* Indvendig afstand */
+    color: #F9E9D2; /* Lys tekst */
+    max-width: 100vw; /* Maks bredde */
+    margin-top: auto; /* Placeres nederst */
+    height: 30vh; /* Højde */
+}
+
+footer .footer-sections {
+    display: flex; /* Flexbox layout */
+    text-align: center; /* Centreret tekst */
+    justify-content: space-between; /* Fordeler sektioner */
+    gap: 20px; /* Afstand mellem sektioner */
+    flex-wrap: nowrap; /* Ingen wrap */
+}
+
+footer .footer-sections > div {
+    flex: 1; /* Lige stor bredde */
+}
+
+footer h1 {
+    font-size: 16px; /* Overskrift størrelse */
+    margin-bottom: 15px; /* Bund margin */
+    letter-spacing: 1px; /* Bogstavafstand */
+}
+
+footer p, footer address {
+    font-size: 14px; /* Tekststørrelse */
+    line-height: 1.6; /* Liniehøjde */
+}
+
+footer .sociale-medier a {
+    display: inline-block; /* Inline-block */
+    margin-right: 10px; /* Højre margin */
+}
+
+footer .sociale-medier img {
+    width: 24px; /* Bredde */
+    height: 24px; /* Højde */
+    vertical-align: middle; /* Vertikal justering */
+    transition: transform 0.2s ease; /* Smooth hover */
+}
+
+footer .sociale-medier img:hover {
+    transform: scale(1.1); /* Forstørres ved hover */
+}
+
+footer .copyrights {
+    margin-top: 40px; /* Top margin */
+    text-align: center; /* Centreret */
+    font-size: 12px; /* Lille tekst */
+    color: #F9E9D2; /* Lys farve */
+}
+
+/* --- RESPONSIVE (MOBIL) --- */
+@media (max-width: 600px) {
+      .nav {
+        display: none;           /* Skjul desktop-menu */
+    }
+
+    .dropdown {
+        display: block;          /* Vis burger-menu */
+    }
+
+    .logo {
+        max-width: 50vw;         /* Størrelse på mobil */
+        margin-top: 0.5vh;
+    }
+
+    .dropdown-content {
+        padding-top: calc(15vw + 40px);
+    }
+
+
+
+  section {
+    padding: 60px 16px;
+  }
+
+
+  #guest-section img {
+    margin-top: -10vh;
+    max-width: 80vw;
+  }
+
+  /* --- KALENDER --- */
+  .calendar {
+    max-width: 100%;
+  }
+
+  .calendar-weekdays {
+    font-size: 12px;
+
+  }
+
+  .calendar-days button {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+    margin-left: 1vh;
+  }
+
+  #date-section img {
+    margin-top: -15vh;
+    max-width: 80vw;
+  }
+
+  /* --- TIDSVÆLGER --- */
+  #time-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 3 pr. række */
+    gap: 12px;
+    max-width: 100%;
+    justify-items: center; /* centrerer knapper i kolonner */
+  }
+
+  .time-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* gør dem cirkulære */
+    font-size: 16px;
+
+    /* centrer tekst */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+  #time-section img {
+    margin-top: -12vh;
+    max-width: 80vw;
+  }
+
+  /* --- BORDVALG --- */
+  .room {
+    max-width: 100%;
+    height: 55vh;/
+
+  }
+
+  .table {
+    width: 42px;
+    height: 42px;
+    font-size: 12px;
+  }
+
+  .bar {
+    width:70vw;
+    height: 5vh;
+  }
+
+    footer .footer-sections {
+        flex-direction: column; /* Lodret layout */
+        gap: 20px; 
+        text-align: center; 
+    }
+
+    footer .footer-sections > div {
+        flex: none; /* Fjern flex */
+        width: 100%; /* Fuld bredde */
+        margin-bottom: 20px; /* Bund margin */
+    }
+
+    footer {
+        height: auto; /* Juster højde */
+        padding: 40px 20px;
+        margin-top: 10vh; /* Top margin */
+    }
+ }

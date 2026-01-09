@@ -1,0 +1,757 @@
+/* --- BODY & FONT --- */ 
+html, body { /* Body-elementets styling starter */
+    background-color: #F9E9D2; /* Sætter baggrundsfarven */
+    font-family: 'Gotham light', sans-serif; /* Sætter standardfont */
+    margin: 0; /* Fjerner margin */
+    padding: 0; /* Fjerner padding */
+    box-sizing: border-box; /* Inkluderer padding og border i elementets samlede størrelse */
+    height: 100%; /* Siden fylder hele vinduets højde */
+    min-height: 100vh;
+    display: flex;          /* Gør body til en flex-container */
+    flex-direction: column; /* Lægger indholdet lodret */
+} 
+
+/*--- FONT IMPORTS ---*/
+/* Import af custom font "Gotham light" */
+@font-face { /* Definerer en brugerdefineret font */
+    font-family: "Gotham light"; /* Navngiver fonten */
+    src:url("../fonts/gotham_light-webfont.woff") format("woff"); /* Angiver fontfil */
+    font-weight: 300; /* Sætter vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} /* Slut på font-face */
+
+/* Import af custom font "Gotham" (bold) */
+@font-face { /* Definerer endnu en custom font */
+    font-family: "Gotham"; /* Navn */
+    src: url("../fonts/gotham_bold-webfont.woff") format("woff"); /* Filsti til bold version */
+    font-weight: 700; /* Bold vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} /* Slut custom font */
+
+
+
+/* --- NAVIGATION --- */
+.nav { /* Navigation container */
+    display: flex; /* Bruger flexbox */
+    justify-content: center; /* Centrerer items */
+    gap: 100px; /* Afstand mellem items */
+    width: 100%; /* Fylder hele bredden */
+    padding: 0; /* Ingen padding */
+    font-family: 'Gotham light', sans-serif; /* Font */
+} /* Slut navigation */
+
+/* Links i navigation */
+.nav a { /* Styling af links */
+    border: 1px solid #D96209; /* Orange kant */
+    color: #D96209; /* Tekstfarve */
+    text-decoration: none; /* Ingen understregning */
+    padding: 10px 0; /* Vertikal padding */
+    font-size: 14px; /* Skrift størrelse */
+    font-weight: bold; /* Fed tekst */
+    border-radius: 10px; /* Rundede hjørner */
+    transition: all 0.3s ease; /* Transition effekt */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Skygge */
+    width: 120px; /* Fast bredde */
+    text-align: center; /* Centreret tekst */
+} /* Slut link styling */
+
+/* Hover-effekt for navigation links */
+.nav a:hover { /* Hover tilstand */
+    background-color: #D96209; /* Orange baggrund */
+    color: white; /* Hvid tekst */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Dybere skygge */
+    transform: translateY(-3px); /* Løfter element */
+} /* Slut hover */
+
+/* Aktiv navigation */
+.nav a.active {
+    background-color: #D96209;
+    color: #F9E9D2;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+}
+
+/* --- LOGO --- */
+.logo-container { /* Container til logo */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centrerer horisontalt */
+    align-items: center; /* Centrerer vertikalt */
+    margin-top: -1vh; /* Justerer placering */
+}
+
+.logo { /* Logo billede */
+    max-width: 15vw; /* Maksimal bredde */
+}
+
+
+
+/* --- BURGER MENU & DROPDOWN --- */
+
+/* Dropdown container */
+.dropdown {
+    display: none;               /* Skjult på desktop */
+    position: absolute;          /* Absolut placering */
+    top: 2vh;                    /* Afstand fra toppen */
+    right: 0;                    /* Afstand fra højre */
+    z-index: 1000;               /* Lag over andre elementer */
+}
+
+/* Burger ikon */
+.burger-icon {
+    cursor: pointer;             /* Klikbar cursor */
+    display: flex;               /* Flexbox til centrering */
+    align-items: center;         /* Vertikal centrering */
+    justify-content: center;     /* Horisontal centrering */
+    padding: 4vw;                /* Indvendig afstand */
+    z-index: 1001;               /* Ligger over dropdown */
+}
+
+/* Kryds / luk-menu */
+.close-dropdown {
+    display: none;               /* Skjult som standard */
+    position: absolute;          /* Absolut placering */
+    top: 2vh;                     /* Afstand fra top */
+    right: 4vw;                   /* Afstand fra højre */
+    font-size: 2.5rem;            /* Stor størrelse */
+    color: #D96209;               /* Orange farve */
+    cursor: pointer;              /* Klikbar cursor */
+    z-index: 1010;                /* Ligger over dropdown */
+    user-select: none;            /* Kan ikke markeres */
+    transition: transform 0.2s ease; /* Smooth hover */
+}
+
+.close-dropdown:hover {
+    transform: scale(1.2);       /* Forstørres ved hover */
+    color: #F9E9D2;              /* Lys farve */
+}
+
+/* Vis kryds kun når menuen er åben */
+#burger-toggle:checked + .burger-icon + .dropdown-content .close-dropdown { 
+    display: block;
+}
+
+/* Dropdown menu container */
+.dropdown-content {
+    position: fixed;             /* Fast på skærmen */
+    top: 0;                      /* Øverst */
+    right: -100%;                /* Starter udenfor skærmen til højre */
+    width: 100%;                 /* Fuld bredde */
+    height: 100%;                /* Fuld højde */
+    background-color: #341510;   /* Mørk baggrund */
+    display: flex;               /* Flexbox layout */
+    flex-direction: column;      /* Lodret layout */
+    align-items: center;         /* Centrer horisontalt */
+    padding-top: calc(15vw + 40px); /* Afstand fra toppen afhængig af logo */
+    transition: right 0.4s ease-in-out; /* Smooth slide effekt */
+    z-index: 1000;               /* Lag */
+}
+
+/* Når burger-menuen er tjekket */
+#burger-toggle:checked + .burger-icon + .dropdown-content {
+    right: 0;                    /* Trækkes ind på skærmen */
+}
+
+/* Links i dropdown */
+.dropdown-content a {
+    padding: 4.5vh 0;            /* Lodret padding */
+    text-decoration: none;       /* Ingen underline */
+    color: white;                /* Hvid tekst */
+    font-size: 24px;             /* Stor tekst */
+    width: 100%;                 /* Fuld bredde */
+    text-align: center;          /* Centreret tekst */
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Let kant */
+    font-family: "Gotham light", sans-serif; 
+    font-weight: 300;            /* Let vægt */
+}
+
+/* Hover for dropdown links (ikke logo) */
+.dropdown-content a:not(.logo-link):hover {
+    background-color: #F9E9D2; 
+    color: #341510;
+}
+
+/* Logo i dropdown */
+.dropdown-content .logo { 
+    margin-top: -15vh;           /* Løftes op */
+    max-width: 50vw;             /* Maksimal størrelse */
+}
+
+/* Skjul checkbox */
+#burger-toggle {
+    display: none;
+}
+
+
+/* =========================================================
+   Emmys– "om os"
+   ---------------------------------------------------------
+   Denne css styrer:
+•  Layout og stil = bog (forside, indersider, bagside)
+•  Intro-tekst + pil på desktop
+•  Bladre-animationer
+•  Mobilvisning (én side ad gangen)
+   Alt er holdt lavet så simpelt som muligt og opdelt i sektioner.
+   ========================================================= */
+
+/* Disse tre klasser deler samme håndskrift-font inde i bogen */
+.page-label,
+.page-text,
+.page-title {
+  font-family: "Shadows Into Light", cursive;
+  color: #341510; /* mørk brun */
+  
+}
+
+
+/* ========== BOG-OMRÅDE ========== */
+
+/* Wrapper rundt om hele bogen, så den kan flyttes samlet */
+.book-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Selve "3D"-containeren for bogen */
+.book-container {
+  position: relative;
+  width: 420px;          /* lukket bog-bredde */
+  height: 550px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transform-origin: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  background: transparent;
+  overflow: hidden;
+  perspective: 1400px;   /* bruges til 3D-flip-animation */
+}
+
+/* Når bogen er åben på desktop (to sider ved siden af hinanden) */
+.book-container.open {
+  width: 840px;          /* 2 × 420px */
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   Emmy’s – Om os (bog) – semantisk HTML version
+   ========================================================= */
+
+
+/* ========== TYPOGRAFI ========== */
+.page-label,
+.page-text,
+.page-title {
+  font-family: "Shadows Into Light", cursive;
+  color: #341510;
+}
+
+/* =========================================================
+   LAYOUT: Bog centreret + intro overlay
+   ========================================================= */
+.book-layout{
+  position: relative;
+  width: 100%;
+  min-height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 60px 0;
+}
+
+.book-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Intro overlay */
+.book-intro{
+  position: absolute;
+  left: 6vw;
+  top: 200px;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  max-width: 320px;
+  color: #4b3a29;
+  font-family: "Gotham light", sans-serif;
+}
+
+.book-intro-text{
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+   
+}
+
+.book-intro-arrow{
+  width: 320px;
+  height: auto;
+}
+
+/* =========================================================
+   SELVE BOGEN
+   ========================================================= */
+.book-container{
+  position: relative;
+  width: 420px;
+  height: 555px;
+
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transform-origin: center;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+
+  background: transparent;
+  perspective: 1400px;
+
+  overflow: hidden;
+}
+
+/* Åben bog (desktop: 2 sider) */
+.book-container.open{
+  width: 840px;
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   FORSIDE & BAGSIDE (nu <section>)
+   ========================================================= */
+.book-cover{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border-radius: 14px;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  color: #d96207;
+  text-align: center;
+  cursor: pointer;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s linear;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+
+  z-index: 3;
+}
+
+.book-cover.front,
+.book-cover.back{
+  background-image: url("../photos/front.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.book-cover:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.3);
+}
+
+.book-cover h1{
+  font-size: 18px;
+  font-family: "Gotham light", sans-serif;
+    margin-right: 4vw;
+}
+
+.book-cover p{
+  margin: 0.75rem 0 0;
+  font-size: 14px;
+  font-family: "Gotham light", sans-serif;
+  margin-right: 3.5vw;
+    margin-bottom: 1rem;
+}
+
+.cover-logo{
+  width: 20vw;
+  margin-right: 3.5vw;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
+}
+
+/* knapper */
+.book-btn{
+  padding: 0.55rem 1.35rem;
+  font-size: 14px;
+  border-radius: 10px;
+  color: #d96207;
+  background: transparent;
+  border: 1px solid #d96207;
+  margin-right: 4vw;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.book-btn:hover{
+  background: #d96207;
+  color: #f3dfc5;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+
+.front-btn,
+.back-btn{ margin-top: 0.5rem; }
+
+/* =========================================================
+   INDERSIDER (nu <section id="bookInner">)
+   ========================================================= */
+.book-inner{
+  position: absolute;
+  inset: 0;
+  display: none; /* JS tænder */
+  background-image: url("../photos/papir.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 14px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* spreads – nu <article class="spread"> */
+.spread{ display: none; height: 100%; }
+.spread.is-active{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* side – nu <section class="page ..."> */
+.page{
+  position: relative;
+  padding: 2rem 1.6rem;
+  border-right: 1px solid rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.65rem;
+
+  cursor: pointer;
+  backface-visibility: hidden;
+}
+
+.page:last-child{ border-right: none; }
+
+/* label + tekst (label er nu <h2>) */
+.page-label{
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: #4b3a29;
+  margin: 0; /* vigtigt når det er en h2 */
+}
+
+.page-text{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4b3a29;
+  max-width: 95%;
+  white-space: pre-line;
+
+}
+
+/* =========================================================
+   FOTO + TAPE
+   ========================================================= */
+.page-photo-wrapper{
+  margin-top: auto;
+  width: 100%;
+}
+
+.photo-row{
+  display: flex;
+  gap: 2.2rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.photo-taped{
+  position: relative;
+  display: inline-block;
+}
+
+.photo-taped img{
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.30);
+  border-radius: 2px;
+}
+
+.tape{
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  background: rgba(236,231,217,0.95);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.22);
+  border-radius: 2px;
+}
+
+/* =========================================================
+   BLADRE-ANIMATIONER
+   ========================================================= */
+.page.flip-next{
+  animation: flipNext 0.7s ease;
+  transform-origin: left center;
+}
+
+.page.flip-prev{
+  animation: flipPrev 0.7s ease;
+  transform-origin: right center;
+}
+
+@keyframes flipNext{
+  0%   { transform: perspective(1400px) rotateY(0deg); }
+  30%  { transform: perspective(1400px) rotateY(-45deg) skewY(3deg); }
+  65%  { transform: perspective(1400px) rotateY(-120deg) skewY(-2deg); }
+  100% { transform: perspective(1400px) rotateY(-180deg); }
+}
+
+@keyframes flipPrev{
+  0%   { transform: perspective(1400px) rotateY(0deg); }
+  30%  { transform: perspective(1400px) rotateY(45deg) skewY(-3deg); }
+  65%  { transform: perspective(1400px) rotateY(120deg) skewY(2deg); }
+  100% { transform: perspective(1400px) rotateY(180deg); }
+}
+
+/* =========================================================
+   NAV UNDER BOGEN (nu <nav id="nav">)
+   ========================================================= */
+.book-nav{
+  display: none;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.book-nav.visible{
+  display: flex;
+}
+
+.book-nav button{
+  padding: 0.5rem 1.1rem;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #D96209;          /* ORANGE */
+  background: transparent;
+  border: 1px solid #D96209;
+}
+
+.book-nav button:hover{
+  background: #D96209;
+  color: #F9E9D2;
+}
+
+
+/* =========================================================
+   MOBIL: 1 SIDE AD GANGEN (body.mobile-left/right i JS)
+   ========================================================= */
+@media (max-width: 800px){
+
+  .desktop-only{ display: none !important; }
+
+  .book-container{
+    width: 350px;
+    height: 500px;
+  }
+
+  .book-container.open{
+    width: 350px;
+  }
+
+  .spread.is-active{
+    grid-template-columns: 1fr;
+  }
+
+  .spread.is-active .page:nth-child(2){
+    display: none;
+  }
+
+  body.mobile-right .spread.is-active .page:nth-child(1){
+    display: none;
+  }
+  body.mobile-right .spread.is-active .page:nth-child(2){
+    display: flex;
+  }
+
+  body.mobile-left .spread.is-active .page:nth-child(1){
+    display: flex;
+  }
+  body.mobile-left .spread.is-active .page:nth-child(2){
+    display: none;
+  }
+
+  .page{
+    padding: 1.2rem 1.1rem;
+  }
+
+  .page-label{ font-size: 16px; }
+  .page-text{
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .page-photo-wrapper{
+    margin-top: 30px;
+    margin-left: 25px;
+  }
+
+  .photo-taped img{
+    width: 105px;
+  }
+
+  /* Nulstiller inline tape placering på mobil */
+  .photo-taped .tape{
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    width: 48px;
+    height: 18px;
+  }
+
+  .photo-taped .tape:nth-of-type(1){
+    top: -10px !important;
+    left: -10px !important;
+    transform: rotate(-8deg) !important;
+  }
+
+  .photo-taped .tape:nth-of-type(2){
+    bottom: -10px !important;
+    right: -10px !important;
+    transform: rotate(8deg) !important;
+  }
+}
+
+
+
+
+/* Footer Container */
+footer {
+    background-color: #341510;  /* Mørk baggrund */
+    padding: 5vh 1.5vw; /* Indvendig afstand */
+    color: #F9E9D2; /* Tekstfarve */
+    max-width: 100vw;   /* Maksimal bredde */
+    height: 30vh; /* Højde */
+    margin-top: auto;
+}
+
+/* Sections container */
+footer .footer-sections {
+    display: flex; /* Flexbox layout */
+    text-align: center; /* Centreret tekst */
+    justify-content: space-between; /* Fordeling mellem sektioner */
+    gap: 1.5vw;  /* Afstand mellem sektioner */
+    flex-wrap: nowrap;  /* Ingen wrap */
+}
+
+/* Each Section */
+footer .footer-sections > div {
+    flex: 1;  /* Lige bredde */
+}
+
+/* Section Headings */
+footer h1 {
+    font-size: 16px; /* Størrelse */
+    margin-bottom: 2vh; /* Afstand under */
+    letter-spacing: 0.2vw; /* Bogstavmellemrum */
+
+}
+
+/* Paragraphs & Address */
+footer p, footer address {
+    font-size: 14px; /* Skriftstørrelse */
+    line-height: 1.6; /* Liniehøjde */
+}
+
+/* Social Media Icons */
+footer .sociale-medier a {
+    display: inline-block; /* Inline-block */
+    margin-right: 0.5vw; /* Afstand mellem ikoner */
+}
+
+footer .sociale-medier img {
+    width: 2.4vw; /* Bredde */
+    height: 5vh; /* Højde */
+    transition: transform 0.2s ease; /* Smooth hover effekt */
+   
+}
+
+footer .sociale-medier img:hover {
+    transform: scale(1.1);  /* Forstørres ved hover */
+}
+
+/* Copyright */
+footer .copyrights {
+    margin-top: 4vh; /* Afstand fra sektioner */
+    text-align: center; /* Centreret tekst */
+    font-size: 12px; /* Lille tekst */
+    color: #F9E9D2; /* Lys farve */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) { /* Mobilvisning */
+     .nav {
+        display: none;           /* Skjul desktop-menu */
+    }
+
+    .dropdown {
+        display: block;          /* Vis burger-menu */
+    }
+
+    .logo {
+        max-width: 50vw;         /* Størrelse på mobil */
+        margin-top: 0.5vh;
+    }
+
+    .dropdown-content {
+        padding-top: calc(15vw + 40px);
+    }
+
+   footer .footer-sections {
+        flex-direction: column; /* Lodret layout */
+        gap: 1.5vw; /* Afstand mellem sektioner */
+        text-align: center; /* Centreret tekst */
+    }
+
+    footer .footer-sections > div {
+        flex: none; /* Fjern flex */
+        width: 100%; /* Fuld bredde */
+        margin-bottom: 4vh; /* Afstand */
+    }
+
+    footer {
+        height: auto; /* Tilpasser sig indhold */
+        padding: 40px 20px; /* Indvendig afstand */
+        margin-top: 10vh; /* Luft ovenfor */
+    }
+
+    footer .sociale-medier img {
+        width: 6vw; /* Bredde */
+        height: 12vh; /* Højde */
+        transition: transform 0.2s ease; /* Smooth hover effekt */
+    }
+}

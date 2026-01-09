@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmys Kaffebar - EVENTS</title>
+    <link rel="stylesheet" href="events.css">
+    <script src="events.js" defer></script>
+</head>
+<body>
+
+ <header>
+
+        <div class="logo-container">
+        <a href="../index.html"><img src="../photos/Emmys.svg" alt="Logo" class="logo"> </a>
+        </div>
+
+    <nav class="nav">
+        <a href="../menu/menu.html">MENU</a>
+        <a href="../book-bord/book-bord.html">BOOK BORD</a>
+        <a href="../events/events.html" class="active">EVENTS</a>
+        <a href="../om-os/om-os.html">OM OS</a>
+        <a href="../kontakt/kontakt.html">KONTAKT</a>
+    </nav>
+
+   
+<div class="dropdown">
+    <input type="checkbox" id="burger-toggle" />
+
+    <!-- Burger-menu ikon -->
+        <label for="burger-toggle" class="burger-icon">
+            <img src="../photos/burgermenu.svg" alt="Burgermenu" />
+        </label>
+
+    <!-- Dropdown-menu -->
+            <div class="dropdown-content">
+
+            <!-- Lukke-kryds -->
+                <label for="burger-toggle" class="close-dropdown">×</label>
+
+            <!-- Logo -->
+                <a href="../index.html" class="logo-link">
+                    <img src="../photos/Emmys.svg" alt="Logo" class="logo">
+                </a>
+
+            <!-- Menu-links -->
+                <a href="../menu/menu.html">MENU</a>
+                <a href="../book-bord/book-bord.html">BOOK BORD</a>
+                <a href="../events/events.html">EVENTS</a>
+                <a href="../om-os/om-os.html">OM OS</a>
+                <a href="../kontakt/kontakt.html">KONTAKT</a>
+         </div>
+</div>
+</header>
+
+<main>
+    <section class="events-section container">
+      <div class="pinboard">
+        <div class="cards-grid">
+
+          <!-- Kort til kaffe -->
+          <article class="card">
+            <img src="../photos/papirognaal.png" class="paper" alt="Et stykke papir der hænger på en opslagstavle med en knappenål">
+            <div class="card-content">
+              <h3 class="card-title">KAFFE WORKSHOP</h3>
+              <p class="card-date">Den 3. januar kl. 10-12</p>
+              <img src="../photos/kaffe.png" class="illustration" alt="En tegnet kop kaffe med latteart">
+              <a class="cta" href="#" onclick="openModal('kaffe')">Se mere info her</a>
+            </div>
+          </article>
+
+          <!-- Modal til kaffe -->
+          <div id="kaffe-modal" class="card-modal">
+            <div class="modal-content">
+              <div class="modal-left">
+                <img src="../photos/kaffe.png" alt="En tegnet kop kaffe med latteart">
+              </div>
+              <div class="modal-right">
+                <h2>KAFFE WORKSHOP</h2>
+                <p>En hyggelig og lærerig formiddag, hvor vi dykker ned i kaffens verden.<br>
+                  <br>Vores barista guider både nysgerrige nybegyndere og erfarne kaffeelskere gennem bryggeteknikker, aromaprofil og små tips til hverdagskaffen.<br>
+                  <br>En rolig workshop med tid til spørgsmål, smagsprøver og god snak.<br>
+                  <br>Den 3. januar kl. 10-12
+                </p>
+                <a class="cta" href="tilmelding-event.html?event=KAFFE%20WORKSHOP&date=3.%20januar%20kl.%2010-12">Tilmeld dig</a>
+                <span class="close-btn">×</span>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Kort til matcha -->
+          <article class="card">
+            <img src="../photos/papirognaal.png" class="paper" alt="Et stykke papir der hænger på en opslagstavle med en knappenål">
+            <div class="card-content">
+              <h3 class="card-title">PERFEKT MATCHA</h3>
+              <p class="card-date">Den 14. januar kl. 17-18</p>
+              <img src="../photos/Matcha.png" class="illustration" alt="En tegnet kop med matcha latte">
+              <a class="cta" href="#" onclick="openModal('matcha')">Se mere info her</a>
+            </div>
+          </article>
+
+          <!-- Modal til matcha -->
+          <div id="matcha-modal" class="card-modal">
+            <div class="modal-content">
+              <div class="modal-left">
+                <img src="../photos/Matcha.png" alt="En tegnet kop med matcha latte">
+              </div>
+              <div class="modal-right">
+                <h2>PERFEKT MATCHA</h2>
+                <p>En let og kreativ eftermiddagsaktivitet for alle, der er nysgerrige på matcha.<br>
+                  <br>Vi viser trin for trin, hvordan du får den helt rigtige tekstur og smag – med plads til både leg, 
+                  læring og flotte grønne billeder til de sociale medier.<br>
+                  <br>Roligt tempo, personlig vejledning og en afslappet atmosfære gør det trygt for alle at være med.<br>
+                  <br>Den 14. januar kl. 17-18
+                </p>
+                <a class="cta" href="tilmelding-event.html?event=PERFEKT%20MATCHA&date=14.%20januar%20kl.%2017-18">Tilmeld dig</a>
+                <span class="close-btn">×</span>             
+              </div>
+            </div>
+          </div>
+
+          <!-- Kort til sip and paint -->
+          <article class="card"> 
+            <img src="../photos/papirognaal.png" class="paper" alt="Et stykke papir der hænger på en opslagstavle med en knappenål">
+            <div class="card-content">
+              <h3 class="card-title">SIP AND PAINT</h3>
+              <p class="card-date">Den 7. februar kl. 19-21</p>
+              <img src="../photos/Paint.png" class="illustration" alt="En tegning af en pensel og en tube maling">
+              <a class="cta" href="#" onclick="openModal('sip')">Se mere info her</a>
+            </div>
+          </article>
+
+          <!-- Modal til sip and paint -->
+          <div id="sip-modal" class="card-modal">
+            <div class="modal-content">
+              <div class="modal-left">
+                <img src="../photos/Paint.png" alt="En tegning af en pensel og en tube maling">
+              </div>
+              <div class="modal-right">
+              <h2>SIP AND PAINT</h2>
+              <p>En afslappet og stemningsfuld aften, hvor du kan slippe kreativiteten løs med pensler, farver og et godt glas i hånden.<br>
+                <br>Perfekt til veninde-hygge, kollegaaftener eller en sjov date. Vi sørger for rolige rammer og masser af “mormor-hygge” vibes.<br>
+                <br>Den 7. februar kl. 19-21
+              </p>
+              <a class="cta" href="tilmelding-event.html?event=SIP%20AND%20PAINT&date=7.%20februar%20kl.%2019-21">Tilmeld dig</a>
+              <span class="close-btn">×</span>
+            </div>
+          </div>
+        </div>
+
+          <!-- Kort til tapas -->
+          </article>
+          <article class="card"> 
+            <img src="../photos/papirognaal.png" class="paper" alt="Et stykke papir der hænger på en opslagstavle med en knappenål">
+            <div class="card-content">
+              <h3 class="card-title">TAPAS TORSDAG</h3>
+              <p class="card-date">Hver torsdag kl. 17-20</p>
+              <img src="../photos/Tapas.png" class="illustration" alt="Et tegnet charcuteri bræt med forskellige tapas retter">
+              <a class="cta" href="#" onclick="openModal('tapas')">Se mere info her</a>
+            </div>
+          </article>
+
+          <!-- Modal til tapas -->
+          <div id="tapas-modal" class="card-modal">
+            <div class="modal-content">
+              <div class="modal-left">
+                <img src="../photos/Tapas.png" alt="Et tegnet charcuteri bræt med forskellige tapas retter">
+              </div>
+              <div class="modal-right">
+              <h2>TAPAS TORSDAG</h2>
+              <p>En fast ugentlig tradition fyldt med hygge, smag og fællesskab.<br>
+                <br>Vi serverer små, lækre tapasretter lavet på gode lokale råvarer.<br>
+                <br>Den perfekte måde at mødes efter arbejde eller starte en hyggelig aften.<br>
+                <br>Hver torsdag kl. 17-20
+              </p>
+              <a class="cta" href="tilmelding-event.html?event=TAPAS%20TORSDAG&date=Hver%20torsdag%20kl.%2017-20">Tilmeld dig</a>
+              <span class="close-btn">×</span>     
+            </div>
+          </div>
+        </div>
+
+          <!-- Kort til vinbar -->
+          <article class="card">
+            <img src="../photos/papirognaal.png" class="paper" alt="Et stykke papir der hænger på en opslagstavle med en knappenål">
+            <div class="card-content">
+              <h3 class="card-title">POP UP VINBAR</h3>
+              <p class="card-date">Den 6. marts kl. 18-22</p>
+              <img src="../photos/Vin.png" class="illustration" alt="En tegnet flaske vin">
+              <a class="cta" href="#" onclick="openModal('vinbar')">Se mere info her</a>
+            </div>
+          </article>
+
+          <!-- Modal til vinbar -->
+          <div id="vinbar-modal" class="card-modal">
+            <div class="modal-content">
+              <div class="modal-left">
+                <img src="../photos/Vin.png" alt="En tegnet flaske vin">
+              </div>
+              <div class="modal-right">
+              <h2>POP UP VINBAR</h2>
+              <p>En aften, hvor Emmys omdannes til en lille, hyggelig vinbar med nøje udvalgte vine og lette snacks.<br>
+                <br>En rar og stemningsfuld oplevelse for dem, der sætter pris på god kvalitet og nærværende værtskab. <br>
+                <br>En intim event fyldt med ro, smag og samtale.
+                <br>Den 6. marts kl. 18-22
+              </p>
+              <a class="cta" href="tilmelding-event.html?event=POP%20UP%20VINBAR&date=6.%20marts%20kl.%2018-22">Tilmeld dig</a>
+              <span class="close-btn">×</span>   
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+<footer>
+    <div class="footer-sections">
+        <div class="adresse">
+            <h1>ADRESSE</h1>
+            <address>
+                Algade 65<br>
+                5500 Middelfart
+            </address>
+        </div>
+
+        <div class="kontakt">
+            <h1>KONTAKT</h1>
+            <p>Telefon: +45 22 24 24 79</p>
+            <p>Email: info@emmyskaffebar.dk</p>
+        </div>
+
+        <div class="aabningstider">
+            <h1>ÅBNINGSTIDER</h1> 
+            <p>Mandag - Torsdag <br> 09:00 - 17:30 </p>
+            <p>Fredag <br> 09:00 - 18:00 </p>
+            <p>Lørdag & Søndag <br> 09:30 - 16:00 </p>
+        </div>
+
+        <div class="sociale-medier">
+            <h1>SOCIALE MEDIER</h1>
+            <a href="https://www.instagram.com/emmyskaffebar" aria-label="Emmys Kaffebar on Instagram">
+                <img src="../photos/Instagramlogo.svg" alt="Instagram logo" class="instalogo">
+            </a>
+            <a href="https://www.facebook.com/emmyskaffebar/" aria-label="Emmys Kaffebar on Facebook">
+                <img src="../photos/facebooklogo.svg" alt="Facebook logo" class="facebooklogo">
+            </a>
+            <a href="https://www.tiktok.com/@emmyskaffebar" aria-label="Emmys Kaffebar on TikTok">
+                <img src="../photos/tiktoklogo.svg" alt="TikTok logo" class="tiktoklogo">
+            </a>
+        </div>
+    </div>
+
+    <div class="copyrights">
+        <p>© 2024 Emmys Kaffebar. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

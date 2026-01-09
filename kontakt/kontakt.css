@@ -1,0 +1,529 @@
+/* --- BODY & FONT --- */ 
+html, body { /* Body-elementets styling starter */
+    background-color: #F9E9D2; /* Sætter baggrundsfarven */
+    font-family: 'Gotham light', sans-serif; /* Sætter standardfont */
+    margin: 0; /* Fjerner margin */
+    padding: 0; /* Fjerner padding */
+    box-sizing: border-box; /* Inkluderer padding og border i elementets samlede størrelse */
+     height: 100%; /* Siden fylder hele vinduets højde */
+    display: flex;          /* Gør body til en flex-container */
+    flex-direction: column; /* Lægger indholdet lodret */
+} 
+
+/*--- FONT IMPORTS ---*/
+/* Import af custom font "Gotham light" */
+@font-face { /* Definerer en brugerdefineret font */
+    font-family: "Gotham light"; /* Navngiver fonten */
+    src:url("../fonts/gotham_light-webfont.woff") format("woff"); /* Angiver fontfil */
+    font-weight: 300; /* Sætter vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} /* Slut på font-face */
+
+/* Import af custom font "Gotham" (bold) */
+@font-face { /* Definerer endnu en custom font */
+    font-family: "Gotham"; /* Navn */
+    src: url("../fonts/gotham_bold-webfont.woff") format("woff"); /* Filsti til bold version */
+    font-weight: 700; /* Bold vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} /* Slut custom font */
+
+
+
+/* --- NAVIGATION --- */
+.nav { /* Navigation container */
+    display: flex; /* Bruger flexbox */
+    justify-content: center; /* Centrerer items */
+    gap: 100px; /* Afstand mellem items */
+    width: 100%; /* Fylder hele bredden */
+    padding: 0; /* Ingen padding */
+    font-family: 'Gotham light', sans-serif; /* Font */
+} /* Slut navigation */
+
+/* Links i navigation */
+.nav a { /* Styling af links */
+    border: 1px solid #D96209; /* Orange kant */
+    color: #D96209; /* Tekstfarve */
+    text-decoration: none; /* Ingen understregning */
+    padding: 10px 0; /* Vertikal padding */
+    font-size: 14px; /* Skrift størrelse */
+    font-weight: bold; /* Fed tekst */
+    border-radius: 10px; /* Rundede hjørner */
+    transition: all 0.3s ease; /* Transition effekt */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Skygge */
+    width: 120px; /* Fast bredde */
+    text-align: center; /* Centreret tekst */
+} /* Slut link styling */
+
+/* Hover-effekt for navigation links */
+.nav a:hover { /* Hover tilstand */
+    background-color: #D96209; /* Orange baggrund */
+    color: white; /* Hvid tekst */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Dybere skygge */
+    transform: translateY(-3px); /* Løfter element */
+} /* Slut hover */
+
+/* Aktiv navigation */
+.nav a.active {
+    background-color: #D96209;
+    color: #F9E9D2;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+}
+
+/* --- LOGO --- */
+.logo-container { /* Container til logo */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centrerer horisontalt */
+    align-items: center; /* Centrerer vertikalt */
+    margin-top: -1vh; /* Justerer placering */
+}
+
+.logo { /* Logo billede */
+    max-width: 15vw; /* Maksimal bredde */
+}
+
+
+
+/* --- BURGER MENU & DROPDOWN --- */
+
+/* Dropdown container */
+.dropdown {
+    display: none;               /* Skjult på desktop */
+    position: absolute;          /* Absolut placering */
+    top: 2vh;                    /* Afstand fra toppen */
+    right: 0;                    /* Afstand fra højre */
+    z-index: 1000;               /* Lag over andre elementer */
+}
+
+/* Burger ikon */
+.burger-icon {
+    cursor: pointer;             /* Klikbar cursor */
+    display: flex;               /* Flexbox til centrering */
+    align-items: center;         /* Vertikal centrering */
+    justify-content: center;     /* Horisontal centrering */
+    padding: 4vw;                /* Indvendig afstand */
+    z-index: 1001;               /* Ligger over dropdown */
+}
+
+/* Kryds / luk-menu */
+.close-dropdown {
+    display: none;               /* Skjult som standard */
+    position: absolute;          /* Absolut placering */
+    top: 2vh;                     /* Afstand fra top */
+    right: 4vw;                   /* Afstand fra højre */
+    font-size: 2.5rem;            /* Stor størrelse */
+    color: #D96209;               /* Orange farve */
+    cursor: pointer;              /* Klikbar cursor */
+    z-index: 1010;                /* Ligger over dropdown */
+    user-select: none;            /* Kan ikke markeres */
+    transition: transform 0.2s ease; /* Smooth hover */
+}
+
+.close-dropdown:hover {
+    transform: scale(1.2);       /* Forstørres ved hover */
+    color: #F9E9D2;              /* Lys farve */
+}
+
+/* Vis kryds kun når menuen er åben */
+#burger-toggle:checked + .burger-icon + .dropdown-content .close-dropdown { 
+    display: block;
+}
+
+/* Dropdown menu container */
+.dropdown-content {
+    position: fixed;             /* Fast på skærmen */
+    top: 0;                      /* Øverst */
+    right: -100%;                /* Starter udenfor skærmen til højre */
+    width: 100%;                 /* Fuld bredde */
+    height: 100%;                /* Fuld højde */
+    background-color: #341510;   /* Mørk baggrund */
+    display: flex;               /* Flexbox layout */
+    flex-direction: column;      /* Lodret layout */
+    align-items: center;         /* Centrer horisontalt */
+    padding-top: calc(15vw + 40px); /* Afstand fra toppen afhængig af logo */
+    transition: right 0.4s ease-in-out; /* Smooth slide effekt */
+    z-index: 1000;               /* Lag */
+}
+
+/* Når burger-menuen er tjekket */
+#burger-toggle:checked + .burger-icon + .dropdown-content {
+    right: 0;                    /* Trækkes ind på skærmen */
+}
+
+/* Links i dropdown */
+.dropdown-content a {
+    padding: 4.5vh 0;            /* Lodret padding */
+    text-decoration: none;       /* Ingen underline */
+    color: white;                /* Hvid tekst */
+    font-size: 24px;             /* Stor tekst */
+    width: 100%;                 /* Fuld bredde */
+    text-align: center;          /* Centreret tekst */
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Let kant */
+    font-family: "Gotham light", sans-serif; 
+    font-weight: 300;            /* Let vægt */
+}
+
+/* Hover for dropdown links (ikke logo) */
+.dropdown-content a:not(.logo-link):hover {
+    background-color: #F9E9D2; 
+    color: #341510;
+}
+
+/* Logo i dropdown */
+.dropdown-content .logo { 
+    margin-top: -15vh;           /* Løftes op */
+    max-width: 50vw;             /* Maksimal størrelse */
+}
+
+/* Skjul checkbox */
+#burger-toggle {
+    display: none;
+}
+
+
+/*--kontakt formular--*/
+.mailbox{
+    display: flex; /*--brug af flex så den er flexibel og elementerne kan rykkes efter behov--*/
+    flex-direction: column; /*--flex direction colum for at tvinge alt indholdet til at stå på en linje--*/
+    width: 120vh; /*--brug af vh for at scale på viewport height, og nemmmere scale i responsiv--*/
+    height: auto; /*-- height auto, så den automatisk følger med resten--*/
+    margin-top: 80px;/*-- padding og margin for at lave mellemrum mellem indholdet.--*/
+    padding-bottom: 80px;
+    justify-self: center;/*--brug af både justify self og align items, for at stabilisere indholdet.--*/
+    align-items: center;  
+}
+/*--overskrift og brødtekst til sektionen--*/
+#mailboxtekst{
+    display: flex;
+    flex-direction: column; /*--flex direction collum, for at fasteholde retningen--*/
+    text-align: center;
+    padding-bottom: 50px;
+}
+/*--bagrunden--*/
+.background{
+    display:flex;
+    position: absolute; /*--brug af position absolute, så den kan rykkes efter behov, og ikke påvirker de andre elementer--*/
+    z-index: -1;/*--brug af z-index for at lægge lagende ovenpå hinaden på 3 D aksen--*/
+}
+/*--formularen--*/
+#formular{
+    display: flex; /*--brug af display flex, for at kunne frit bevæge indholdet med position--*/
+    position: absolute; /*--brug af position absolut, for at kunne rykke den frit, med de mål der gives--*/
+    margin-top: 40vh; /*-- brug af margin for at skubbe den ned--*/
+    z-index: 0; /*--brug af z-index for at bestemme dens position på 3d aksen, så den kan ligge i mellem de andre elementer.--*/
+    font-family: 'Gotham light', sans-serif;
+}
+/*--selve formularen--*/
+.sendbox {
+    width: 95%;
+    padding: 50px;
+    box-sizing: border-box;
+    color: #341510;   
+    position: absolute;
+}
+.sendbox input, .sendbox textarea {
+    width: 100%;
+    padding: 8px;  
+    margin-bottom: 15px;
+    border-color: #D96207;
+    border-style: solid; /*--border style for at give den en solid farve--*/
+    border-radius: 4px;
+    background-color: #E9E9E9;
+}
+.sendbox label {
+    font-weight: 700;
+}
+.sendbox textarea {
+    height: 100px;
+    resize: vertical;
+    border-width: 2px; /*--brug af border width, for at give den den samme størelse som formularen over --*/
+}
+/*--forgrunden--*/
+.envelope{
+    display: flex;
+    position: absolute;
+    margin-top:500px;
+    z-index: 1;
+}
+/*--event pop up--*/
+#popup{
+    z-index: -10;
+    width: 430px;
+    height: 135px;
+    background-color: #1b1b1b;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    top: 120%;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.0;
+    transition: opacity 0.5s ease-in;
+}
+#popup p{
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin: auto;
+}
+/*--close button--*/
+#CloseB{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: transparent;
+}
+#CloseB img{
+    position: relative;
+    height: 100%;
+    width: auto;
+}
+/*--knap der udløser pop-up--*/
+/*--send knappen--*/
+#button{
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    place-content: center;
+    max-height: 90px;
+    width: 90px;
+    block-size: 20vh;
+    border-radius: 50px 50px 50px 50px; /*--border radius for at gøre den rund--*/
+    margin-top: 750px;
+    background-color: #D96207; /*--knap farve--*/
+    color: #F9E9D2; /*--font farve--*/
+    z-index: 2;
+    border: none;
+}
+/*--hover til knap--*/
+button :hover{
+    transform: scale(1.5);
+}
+
+
+/*--kassen der indeholder alt content og regler--*/
+.some{ /*--parent. en "kasse" der har faste regler for indholdet.--*/
+    margin-top: 80px; /*--margin for at skabe mellemrum i indholdet.--*/   
+    padding-bottom: 80px;
+    max-width: auto;
+    max-height: auto;
+}
+/*--overskrift og brødtekst til sektionen--*/
+#sometekst{ /*--child. bestemmer stilen for teksten.--*/
+    display: flex;
+    flex-direction: column; /*--flex direction collum, for at fasteholde retningen--*/
+    text-align: center;
+    
+}
+/*--kasse der indeholder ikonerne--*/
+.ikoner{
+    display: flex;
+    justify-content: center;
+    flex-direction: row; /*--direction row, for at ændre html's naturelige opsætning--*/
+    scale: calc(0.5);/*--scale, for at scalere den ned--*/
+}
+
+.ikoner :hover{
+    transition: 200ms;
+    transform: scale(0.9);
+}
+#instagram{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.facebok{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#tiktok{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px; 
+}
+
+/*--kasse der indeholder embeded kode til maps*/
+
+.lokation{
+    display: flex;
+    flex-direction: column;
+    width: 120vh;
+    height: auto;
+    margin-top: 80px;
+    padding-bottom: 80px;
+    justify-self: center;
+    align-items: center; 
+}
+/*--pin med hover--*/
+#pin{
+    display: flex;
+    position: absolute;
+    justify-self: center;
+    padding-right: 130px;
+    margin-top: 145px;
+    z-index: 1;
+}
+#pin :hover{
+    transition: 200ms;
+    transform: scale(0.9);
+}
+.maps{
+    scale: calc(0.7);
+
+}
+
+
+
+/*--media query for responsiv, 500 px, for større telefoner og små--*/
+@media screen and (max-width: 500px){
+
+    main{
+        overflow: clip;
+    }
+
+    .mailbox{
+        scale: calc(0.5);
+        margin: -100px;
+    }
+    .formular{
+        display: flex;
+
+    }
+    
+
+    .some{
+        scale: calc(0.5);
+        margin: -300px;
+    }
+
+    .lokation{
+        scale: calc(0.5);
+        margin-bottom: -100px;
+    }
+    #popup{
+        top: 60%;
+    }
+}
+/*--media screen, tilpasset en større skærm--*/
+@media screen and (min-width: 1440px) {
+    
+    #formular{
+        margin-top: 16vw;
+    }
+}
+
+
+
+
+/* --- Footer Container ---*/
+footer {
+    background-color: #341510;  /* Mørk baggrund */
+    padding: 40px 20px; /* Indvendig afstand */
+    color: #F9E9D2; /* Tekstfarve */
+    max-width: 100vw; /* Max bredde */
+    margin-top: auto; /* Afstand ovenfor */
+    height: 30vh; /* Højde */
+
+}
+
+/* Sections container */
+footer .footer-sections {
+    display: flex; /* Flexbox */
+    text-align: center; /* Centreret tekst */
+    justify-content: space-between; /* Fordeling */
+    gap: 20px;  /* Afstand */
+    flex-wrap: nowrap;  /* Ingen wrap */
+}
+
+/* Each Section */
+footer .footer-sections > div {
+    flex: 1;  /* Lige bredde */
+}
+
+/* Section Headings */
+footer h1 {
+    font-size: 16px; /* Størrelse */
+    margin-bottom: 15px; /* Afstand */
+    letter-spacing: 1px; /* Bogstavmellemrum */
+}
+
+/* Paragraphs & Address */
+footer p, footer address {
+    font-size: 14px; /* Størrelse */
+    line-height: 1.6; /* Liniehøjde */
+}
+
+/* Social Media Icons */
+footer .sociale-medier a {
+    display: inline-block; /* inline-block */
+    margin-right: 10px; /* Afstand */
+}
+
+footer .sociale-medier img {
+    width: 24px; /* Bredde */
+    height: 24px; /* Højde */
+    vertical-align: middle; /* Justering */
+    transition: transform 0.2s ease; /* Hover effekt */
+}
+
+footer .sociale-medier img:hover {
+    transform: scale(1.1);  /* Forstørres */
+}
+
+/* Copyright */
+footer .copyrights {
+    margin-top: 40px; /* Afstand */
+    text-align: center; /* Centreret tekst */
+    font-size: 12px; /* Lille tekst */
+    color: #F9E9D2; /* Farve */
+}
+
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) { /* Media query for mobil */
+  .nav {
+        display: none;           /* Skjul desktop-menu */
+    }
+
+    .dropdown {
+        display: block;          /* Vis burger-menu */
+    }
+
+    .logo {
+        max-width: 50vw;         /* Størrelse på mobil */
+        margin-top: 0.5vh;
+    }
+
+    .dropdown-content {
+        padding-top: calc(15vw + 40px);
+    }
+
+    footer .footer-sections {
+        flex-direction: column; /* Lodret layout */
+        gap: 20px; /* Afstand */
+        text-align: center; /* Centreret tekst */
+    }
+
+    footer .footer-sections > div {
+        flex: none; /* Fjerner flex */
+        width: 100%; /* Fuld bredde */
+        margin-bottom: 20px; /* Afstand */
+    }
+
+    footer {
+        height: auto; /* Tilpasses indhold */
+        padding: 40px 20px; /* Indvendig afstand */
+        margin-top: 10vh; /* Afstand */
+    }
+}

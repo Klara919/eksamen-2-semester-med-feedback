@@ -1,0 +1,571 @@
+/* BODY */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gotham light', sans-serif;
+    background-color: #F9E9D2;
+    overflow-x: hidden; /* Fjerner horisontal scroll */
+}
+
+/* Import af custom font "Gotham light" */
+@font-face { /* Definerer brugerdefineret font */
+    font-family: "Gotham light"; /* Navn på font */
+    src:url("fonts/gotham_light-webfont.woff") format("woff"); /* Filsti og format */
+    font-weight: 300; /* Let vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} 
+
+/* Import af custom font "Gotham" (bold) */
+@font-face { /* Definerer endnu en font */
+    font-family: "Gotham"; /* Navn på font */
+    src: url("fonts/gotham_bold-webfont.woff") format("woff"); /* Filsti og format */
+    font-weight: 700; /* Bold vægt */
+    font-style: normal; /* Normal stil */
+    font-display: swap; /* Forbedrer indlæsning */
+} 
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* fylder hele skærmen */
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.navbar-wrapper {
+    position: sticky;  /* sticky navbar */
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2vh 0;
+    background-color: rgba(249, 233, 210, 0.95); /* semi-transparent baggrund, så video kan skimtes */
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.navbar-wrapper.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
+
+.logo-container { /* Container til logo */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centrerer horisontalt */
+    align-items: center; /* Centrerer vertikalt */
+    margin-top: -1vh; /* Justerer placering */
+}
+
+.logo { /* Logo billede */
+    max-width: 15vw; /* Maksimal bredde */
+}
+
+/* NAV LINKS */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.nav a {
+    border: 1px solid #D96209;
+    color: #D96209;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 14px;
+    margin-top: -2vh;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.nav a:hover {
+    background-color: #D96209;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+}
+
+/* DROPDOWN / BURGER MENU (kort) */
+.dropdown {
+    display: none;
+}
+
+/* --- BURGER MENU --- */
+.dropdown { /* Dropdown container */
+    display: none; /* Skjult på desktop */
+    position: absolute; /* Absolut placering */
+    top: 2vh; /* Afstand fra toppen */
+    right: 0; /* Afstand fra højre */
+    z-index: 1000; /* Lag over andre elementer */
+}
+
+.burger-icon { /* Burger menu ikon */
+    cursor: pointer; /* Klikbar cursor */
+    display: flex; /* Flexbox til centrering */
+    align-items: center; /* Vertikal centrering */
+    justify-content: center; /* Horisontal centrering */
+    padding: 4vw; /* Indvendig afstand */
+    z-index: 1001; /* Ligger over dropdown */
+    margin-top: 0vh; /* Luft fra toppen */
+}
+
+/* --- Kryds (luk menu) --- */
+.close-dropdown { /* Luk-ikon */
+    display: none; /* Skjult som standard */
+    position: absolute; /* Absolut placering */
+    top: 2vh; /* Afstand fra top */
+    right: 4vw; /* Afstand fra højre */
+    font-size: 2.5rem; /* Stor størrelse */
+    color: #D96209; /* Orange farve */
+    cursor: pointer; /* Klikbar cursor */
+    z-index: 1010; /* Ligger over dropdown-indhold */
+    user-select: none; /* Kan ikke markeres */
+    transition: transform 0.2s ease; /* Smooth hover transition */
+}
+
+.close-dropdown:hover { /* Hover-effekt for kryds */
+    transform: scale(1.2); /* Forstørres */
+    color: #F9E9D2; /* Farveændring */
+}
+
+/* Vis kryds kun når menuen er åben */
+#burger-toggle:checked + .burger-icon + .dropdown-content .close-dropdown { 
+    display: block; /* Kryds bliver synligt */
+}
+
+/* Dropdown-links hover (kun menupunkter, ikke logo) */
+.dropdown-content a:not(.logo-link):hover {
+    background-color: #F9E9D2; /* Lys baggrund */
+    color: #341510; /* Mørk tekst */
+}
+
+/* Logo margin-top justering */
+.dropdown-content .logo { 
+    margin-top: -15vh; /* Løftes op i dropdown */
+    max-width: 50vw; /* Maksimal størrelse på mobil */
+}
+
+/* Skjul checkbox */
+#burger-toggle  {
+    display: none; /* Skjult, kun til funktionalitet */
+}
+
+/* --- Dropdown menu --- */
+.dropdown-content { /* Dropdown menu container */
+    position: fixed; /* Fast på skærmen */
+    top: 0; /* Øverst */
+    right: -100%; /* Starter udenfor skærmen til højre */
+    width: 100%; /* Fuld bredde */
+    height: 100%; /* Fuld højde */
+    background-color: #341510; /* Mørk baggrund */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Lodret layout */
+    align-items: center; /* Centrer horisontalt */
+    padding-top: calc(15vw + 40px); /* Afstand fra toppen afhængig af logo */
+    transition: right 0.4s ease-in-out; /* Smooth slide effekt */
+    z-index: 1000; /* Lag */
+}
+
+/* Dropdown billeder */
+.dropdown-content img {
+    margin-top: 10vh; /* Flyt op i dropdown */
+}
+
+/* Når burger-menuen er tjekket, glider menuen ind */
+#burger-toggle:checked + .burger-icon + .dropdown-content {
+    right: 0; /* Trækkes ind på skærmen */
+}
+
+/* Links i dropdown */
+.dropdown-content a {
+    padding: 4.5vh 0; /* Lodret padding */
+    text-decoration: none; /* Ingen underline */
+    color: white; /* Hvid tekst */
+    font-size: 24px; /* Stor tekst */
+    width: 100%; /* Fuld bredde */
+    text-align: center; /* Centreret tekst */
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Let kant under hvert link */
+    font-family: "Gotham light", sans-serif; /* Font */
+    font-weight: 300; /* Let vægt */
+}
+
+.marquee-wrapper {
+  width: 100%;               /* Fylder hele bredden af viewporten */
+  overflow: hidden;          /* Skjuler indhold, der bevæger sig uden for containeren */
+  background-color: #341510; /* Baggrundsfarve for marquee-området */
+  padding: 4vh 0;            /* Lodret luft over og under indholdet */
+}
+
+.marquee-track {
+  display: flex;             /* Bruger flexbox til at placere indhold vandret */
+  flex-wrap: nowrap;         /* Forhindrer elementerne i at bryde til ny linje */
+  font-family: "Gotham light", sans-serif; /* Angiver skrifttypen */
+  font-weight: normal;       /* Normal vægt, da fonten allerede er light */
+  font-size: 20px;           /* Tekstens størrelse */
+  color: #F9E9D2;            /* Tekstens farve */
+  white-space: nowrap;       /* Forhindrer linjeskift i teksten */
+  transform: translateX(0);  /* Startposition for vandret bevægelse */
+}
+
+
+/*MAIN*/
+
+/*split sektion 1*/
+.split-section1 {
+  display: flex;
+  width: 100%;
+  min-height: 70vh;
+background-color: #F9E9D2;
+margin-top: 2vh;
+}
+
+.split-section1 .split {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.split-section1 .split.left {
+    display: flex;
+    justify-content: center; /* centrerer vandret */
+    align-items: center;     /* centrerer lodret */
+    height: 100%;            /* sørg for at div'en har højde */
+}
+
+.split-section1 .split.left img {
+    max-width: 50vh;
+    margin-top: 10vh;
+}
+
+.split-section1 .split.right {
+  color: #341510;
+  font-size: 20px;
+}
+
+.split-section1 .split.right a {
+  color: #D96209;
+  text-decoration: none;
+  border: #D96209 2px solid;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: fit-content;
+    margin-top: 4vh;
+}
+
+.split-section1 .split.right a:hover {
+  background-color: #D96209;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/*split sektion 2*/
+.split-section2{
+  display: flex;
+  width: 100%;
+  min-height: 70vh;
+background-color: #341510;
+margin-top: 2vh;
+}
+
+.split-section2 .split {
+  flex: 1;
+  padding: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 4vw;
+}
+
+.split-section2 .split.left{
+  color: #F9E9D2;
+    font-size: 20px;
+}
+
+.split-section2 .split.left a {
+  color: #D96209;
+  text-decoration: none;
+  border: #D96209 2px solid;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: fit-content;
+ margin-top: 4vh;
+}
+
+.split-section2 .split.left a:hover {
+  background-color: #D96209;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+
+.split-section2 .split.right {
+    display: flex;
+    justify-content: center; /* centrerer vandret */
+    align-items: center;     /* centrerer lodret */
+    height: 100%;            /* sørg for at div'en har højde */
+}
+
+.split-section2 .split.right img {
+    width: 100%;       /* fylder hele højden af containeren */
+    max-width: 25vw;  /* maks bredde, kan justeres efter behov */
+    height: auto;      /* bevarer proportioner */
+    display: block;
+    margin: 0 auto;    /* centrerer billedet i containeren */
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-right: 20vh;
+}
+
+/*split sektion 3*/
+
+.split-section3 {
+  display: flex;
+  width: 100%;
+  min-height: 70vh;
+background-color: #F9E9D2;
+margin-top: 2vh;
+}
+
+.split-section3 .split {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.split-section3 .split.left {
+    display: flex;
+    justify-content: center; /* centrerer vandret */
+    align-items: center;     /* centrerer lodret */
+    height: 100%;            /* sørg for at div'en har højde */
+}
+
+.split-section3 .split.left img {
+    max-width: 50vh;
+    margin-top: 15vh;
+}
+
+.split-section3 .split.right {
+  color: #341510;
+  font-size: 20px;
+  margin-top: 5vh;
+}
+
+.split-section3 .split.right a {
+  color: #D96209;
+  text-decoration: none;
+  border: #D96209 2px solid;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: fit-content;
+    margin-top: 4vh;
+}
+
+.split-section3 .split.right a:hover {
+  background-color: #D96209;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+
+
+/* Footer Container */
+footer {
+    background-color: #341510;  /* Mørk baggrund */
+    font-family: 'Gotham light', sans-serif; /* Standard font for siden */
+    padding: 5vh 1.5vw; /* Indvendig afstand */
+    color: #F9E9D2; /* Tekstfarve */
+    max-width: 100vw;   /* Maksimal bredde */
+    margin-top: 10vh; /* Afstand fra indhold */
+    height: auto;
+}
+
+/* Sections container */
+footer .footer-sections {
+    display: flex; /* Flexbox layout */
+    text-align: center; /* Centreret tekst */
+    justify-content: space-between; /* Fordeling mellem sektioner */
+    gap: 1.5vw;  /* Afstand mellem sektioner */
+    flex-wrap: nowrap;  /* Ingen wrap */
+}
+
+/* Each Section */
+footer .footer-sections > div {
+    flex: 1;  /* Lige bredde */
+}
+
+/* Section Headings */
+footer h1 {
+    font-size: 16px; /* Størrelse */
+    margin-bottom: 2vh; /* Afstand under */
+    letter-spacing: 0.2vw; /* Bogstavmellemrum */
+}
+
+/* Paragraphs & Address */
+footer p, footer address {
+    font-size: 14px; /* Skriftstørrelse */
+    line-height: 1.6; /* Liniehøjde */
+}
+
+/* Social Media Icons */
+footer .sociale-medier a {
+    display: inline-block; /* Inline-block */
+    margin-right: 0.5vw; /* Afstand mellem ikoner */
+}
+
+footer .sociale-medier img {
+    width: 2.4vw; /* Bredde */
+    height: 5vh; /* Højde */
+    transition: transform 0.2s ease; /* Smooth hover effekt */
+   
+}
+
+footer .sociale-medier img:hover {
+    transform: scale(1.1);  /* Forstørres ved hover */
+}
+
+
+
+/* Copyright */
+footer .copyrights {
+    margin-top: 4vh; /* Afstand fra sektioner */
+    text-align: center; /* Centreret tekst */
+    font-size: 12px; /* Lille tekst */
+    color: #F9E9D2; /* Lys farve */
+}
+
+
+
+@media (max-width: 600px) { /* Mobil */
+    /* Skjul desktop-menu og vis burger-menu */
+    .nav {
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
+    }
+
+    /* Fjern navbar baggrund på mobil */
+    .navbar-wrapper {
+        background-color: transparent; /* ingen baggrund */
+        padding: 10px 20px; /* beholder lidt padding */
+    }
+
+     .logo-container {
+        display: none;
+    }
+    /* Større logo på mobil */
+    .logo {
+        max-width: 20vw;
+        margin: 10px auto;
+        display: block;
+    }
+
+    /* Hero video mindre høj på mobil */
+    header {
+        height: 50vh;
+    }
+
+    .hero-video {
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    /* Dropdown-indhold tilpasset mobil */
+    .dropdown-content {
+        padding-top: calc(15vw + 40px);
+    }
+
+     /* Gør alle split-sektioner vertikale */
+  .split-section1,
+  .split-section2,
+  .split-section3 {
+    flex-direction: column;  /* Stabler venstre og højre */
+    min-height: auto;        /* Tillad højden at tilpasse indholdet */
+    padding: 2vh 0;
+  }
+
+  /* Juster padding i split-divs */
+  .split-section1 .split,
+  .split-section2 .split,
+  .split-section3 .split {
+    padding: 2vh 5vw;
+  }
+
+  /* Billeder skaleres ned og centreret */
+  .split-section1 .split.left img,
+  .split-section2 .split.right img,
+  .split-section3 .split.left img {
+    max-width: 90%;       /* Gør billeder mindre */
+    height: auto;         /* Bevarer proportioner */
+    margin: 0 auto 2vh;   /* Centrerer og giver margin */
+  }
+
+  /* Tekstjustering */
+  .split-section1 .split.right,
+  .split-section2 .split.left,
+  .split-section3 .split.right {
+    font-size: 18px;       /* Gør teksten lidt mindre */
+    text-align: center;    /* Centrer tekst på små skærme */
+    margin-top: 2vh;
+  }
+
+  /* Knapper centreret */
+  .split-section1 .split.right a,
+  .split-section2 .split.left a,
+  .split-section3 .split.right a {
+    margin: 2vh auto 0;    /* Centrer knap horisontalt */
+    display: inline-block;
+  }
+
+    /* Footer lodret layout */
+    footer .footer-sections {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    footer .footer-sections > div {
+        flex: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        height: auto;
+        padding: 40px 20px;
+        margin-top: 10vh;
+    }
+
+    /* Sociale medier ikoner større på mobil */
+    footer .sociale-medier img {
+        width: 6vw;
+        height: 12vh;
+    }
+}

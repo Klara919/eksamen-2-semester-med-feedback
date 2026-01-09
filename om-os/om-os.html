@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmys Kaffebar - OM OS</title>
+    <link rel="stylesheet" href="om-os.css">
+    <script src="om-os.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+
+        <div class="logo-container">
+        <a href="../index.html"><img src="../photos/Emmys.svg" alt="Logo" class="logo"> </a>
+        </div>
+
+    <nav class="nav">
+        <a href="../menu/menu.html">MENU</a>
+        <a href="../book-bord/book-bord.html">BOOK BORD</a>
+        <a href="../events/events.html">EVENTS</a>
+        <a href="../om-os/om-os.html" class="active">OM OS</a>
+        <a href="../kontakt/kontakt.html">KONTAKT</a>
+    </nav>
+
+   
+<div class="dropdown">
+    <input type="checkbox" id="burger-toggle" />
+
+    <!-- Burger-menu ikon -->
+        <label for="burger-toggle" class="burger-icon">
+            <img src="../photos/burgermenu.svg" alt="Burgermenu" />
+        </label>
+
+    <!-- Dropdown-menu -->
+            <div class="dropdown-content">
+
+            <!-- Lukke-kryds -->
+                <label for="burger-toggle" class="close-dropdown">×</label>
+
+            <!-- Logo -->
+                <a href="../index.html" class="logo-link">
+                    <img src="../photos/Emmys.svg" alt="Logo" class="logo">
+                </a>
+
+            <!-- Menu-links -->
+                <a href="../menu/menu.html">MENU</a>
+                <a href="../book-bord/book-bord.html">BOOK BORD</a>
+                <a href="../events/events.html">EVENTS</a>
+                <a href="../om-os/om-os.html">OM OS</a>
+                <a href="../kontakt/kontakt.html">KONTAKT</a>
+         </div>
+</div>
+</header>
+
+  <main class="book-layout" aria-label="Om os - interaktiv bog">
+
+    <div class="book-intro desktop-only" id="bookIntro">
+      <p class="book-intro-text">
+        Tryk på bogen og bladre dig igennem alt det, Emmy’s står for.
+      </p>
+      <img src="../photos/pil.png" alt="Pil, der peger mod bogen" class="book-intro-arrow">
+    </div>
+
+    <div class="book-wrapper">
+
+      <div class="book-container" id="book" role="region" aria-label="Interaktiv bog">
+
+        <!-- FORSIDE -->
+        <section class="book-cover front" id="frontCover" aria-label="Forside">
+          <img src="../photos/Emmys.png" alt="Emmy's logo" class="cover-logo">
+          <button class="book-btn front-btn" id="openBookBtn" type="button">
+            Åbn bogen
+          </button>
+        </section>
+
+        <!-- INDERSIDER -->
+        <section class="book-inner" id="bookInner" aria-label="Indersider">
+
+          <!-- SPREAD 1 -->
+          <article class="spread is-active" aria-label="Opslag 1">
+            <section class="page page-left" aria-label="Venstre side">
+              <h2 class="page-label">Om os</h2>
+              <p class="page-text">
+                Jeg hedder Jacob Sandberg, og jeg driver Emmy’s Kaffebar sammen med min familie.
+                
+                For os handler Emmy’s om at give noget tilbage til Middelfart – at skabe et sted i byen,
+                hvor hverdagen kan sænke farten, og hvor mennesker mødes på tværs af liv, rytmer og rutiner.
+               
+                Caféen er tænkt som et lille lokalt holdepunkt – et sted, hvor man kender ansigter,
+                hvor stemningen føles genkendelig, og hvor det nære får lov at fylde.
+              </p>
+
+              <div class="page-photo-wrapper">
+                <div class="photo-row">
+                  <div class="photo-taped">
+                    <img src="../photos/jakobforside.webp" alt="Jacob i caféen">
+                    <span class="tape" style="top:-16px; left:-10px; transform:rotate(-8deg);"></span>
+                    <span class="tape" style="bottom:-10px; right:-6px; transform:rotate(-18deg);"></span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="page page-right" aria-label="Højre side">
+              <h2 class="page-label">Hvorfor Emmy’s?</h2>
+              <p class="page-text">
+                Navnet Emmy’s er valgt som en hyldest til en helt særlig person. Caféen er opkaldt efter min mormor,
+                Emmy – et menneske, der samlede familien med varme, ro og den slags nærvær, man aldrig glemmer.
+
+                Emmy var typen, der altid havde tid. Tid til en kop kaffe, tid til en snak, tid til at få andre til at føle sig hjemme.
+                Det er præcis den følelse, vi ønsker at give videre her i caféen.
+              </p>
+
+              <div class="page-photo-wrapper">
+                <div class="photo-row">
+                  <div class="photo-taped">
+                    <img src="../photos/emmys.jpg" alt="Emmy">
+                    <span class="tape" style="top:-18px; right:-18px; transform:rotate(6deg);"></span>
+                    <span class="tape" style="bottom:-10px; left:-12px; transform:rotate(10deg);"></span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <!-- SPREAD 2 -->
+          <article class="spread" aria-label="Opslag 2">
+            <section class="page page-left" aria-label="Venstre side">
+              <h2 class="page-label">Hjertet bag Emmy’s</h2>
+              <p class="page-text">
+                Hos Emmy’s tror vi på, at en café skal være et frirum fyldt med ro, nærvær og ægte hygge – et sted, hvor alle kan føle sig hjemme.
+               
+                Vi ønsker at være byens samlingspunkt, hvor generationer mødes over hjemmelavede smagsoplevelser og tid til hinanden.
+                Derfor bygger vi på varme, kvalitet og autenticitet. Alt hos os skal føles oprigtigt og omhyggeligt – og vores personale er en vigtig del af det.
+              </p>
+
+              <div class="page-photo-wrapper">
+                <div class="photo-row">
+                  <div class="photo-taped">
+                    <img src="../photos/cafe.jpeg" alt="Caféen">
+                    <span class="tape" style="top:-8px; left:-18px; transform:rotate(-10deg);"></span>
+                    <span class="tape" style="bottom:-10px; right:-12px; transform:rotate(-10deg);"></span>
+                  </div>
+
+                  <div class="photo-taped">
+                    <img src="../photos/personale.jpg" alt="Personale">
+                    <span class="tape" style="top:-18px; left:-18px; transform:rotate(-10deg);"></span>
+                    <span class="tape" style="bottom:-18px; right:-16px; transform:rotate(-6deg);"></span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="page page-right" aria-label="Højre side">
+              <h2 class="page-label">Hjemmelavet – helt fra hjertet</h2>
+              <p class="page-text">
+                Hos Emmy’s laver vi alt selv – helt fra bunden og altid med kærlighed. Det er sådan, Emmy gjorde det,
+                og den tradition bærer vi videre hver eneste dag.
+
+                Vi vælger lokale råvarer, går op i håndværk og smag, og vi gør os umage med hver eneste kage, tallerken og kop kaffe.
+
+                For os er hjemmelavet ikke bare en metode – det er en hyldest til Emmy og til den omsorg, hun stod for.
+              </p>
+
+              <div class="page-photo-wrapper">
+                <div class="photo-row">
+                  <div class="photo-taped">
+                    <img src="../photos/mad.jpeg" alt="Mad">
+                    <span class="tape" style="top:-16px; left:30px; transform:rotate(-8deg);"></span>
+                    <span class="tape" style="bottom:-12px; right:45px; transform:rotate(8deg);"></span>
+                  </div>
+
+                  <div class="photo-taped">
+                    <img src="../photos/kage.jpeg" alt="Kage">
+                    <span class="tape" style="bottom:-10px; left:-10px; transform:rotate(8deg);"></span>
+                    <span class="tape" style="bottom:160px; right:-10px; transform:rotate(8deg);"></span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <!-- SPREAD 3 -->
+          <article class="spread" aria-label="Opslag 3">
+            <section class="page page-left" aria-label="Venstre side">
+              <h2 class="page-label">Kaffen er kernen</h2>
+              <p class="page-text">
+                Hos Emmy’s betyder kaffe noget helt særligt.
+
+                Vi brygger på kvalitetsbønner fra Brew Company – og lægger omtanke og kærlighed i hver eneste kop, vi serverer.
+               
+                En lille pause i hverdagen, som smager af ro og nærvær.
+              </p>
+
+              <div class="page-photo-wrapper">
+                <div class="photo-row">
+                  <div class="photo-taped">
+                    <img src="../photos/kaffe.jpg" alt="Kaffe">
+                    <span class="tape" style="top:-16px; left:40px; transform:rotate(-8deg);"></span>
+                    <span class="tape" style="bottom:2px; right:40px; transform:rotate(2deg);"></span>
+                  </div>
+
+                  <div class="photo-taped">
+                    <img src="../photos/kaffedealer.jpeg" alt="Bønner og leverandør">
+                    <span class="tape" style="top:-18px; right:-18px; transform:rotate(6deg);"></span>
+                    <span class="tape" style="bottom:-10px; left:-10px; transform:rotate(4deg);"></span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="page page-right" aria-label="Højre side">
+              <h2 class="page-label">Essensen af Emmy’s</h2>
+              <p class="page-text">
+                Emmy’s er skabt som et lille frirum, hvor nærvær, hjemlighed og varme går hånd i hånd.
+
+                Her mødes godt håndværk, kvalitetsråvarer, kærlighed til kaffe og en atmosfære, der føles som at træde ind hos nogen, der kender dig.
+                
+                Vi gør os umage – hver dag – for at give dig ro, hygge og hjertevarme.
+              </p>
+
+              <div class="page-photo-wrapper">
+                <div class="photo-row">
+                  <div class="photo-taped">
+                    <img src="../photos/esensmad.jpeg" alt="Essens mad">
+                    <span class="tape" style="top:-10px; left:20px; transform:rotate(-8deg);"></span>
+                    <span class="tape" style="bottom:-10px; left:30px; transform:rotate(4deg);"></span>
+                  </div>
+
+                  <div class="photo-taped">
+                    <img src="../photos/cafested.jpeg" alt="Caféstemning">
+                    <span class="tape" style="bottom:155px; left:90px; transform:rotate(9deg);"></span>
+                    <span class="tape" style="bottom:-10px; left:25px; transform:rotate(4deg);"></span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+        </section>
+
+        <!-- BAGSIDE -->
+        <section class="book-cover back" id="backCover" aria-label="Bagside">
+          <h1>Tak fordi du læste</h1>
+          <p>Vi glæder os til at byde dig velkommen hos Emmy’s Kaffebar.</p>
+          <button class="book-btn back-btn" id="backToFrontBtn" type="button">Læs igen</button>
+        </section>
+
+      </div>
+
+      <!-- NAV -->
+      <nav class="book-nav" id="nav-book" aria-label="Bog navigation">
+        <button id="prevBtn" type="button" aria-label="Forrige side">← Forrige</button>
+        <button id="nextBtn" type="button" aria-label="Næste side">Næste →</button>
+      </nav>
+
+    </div>
+  </main>
+
+
+
+<footer>
+    <div class="footer-sections">
+        <div class="adresse">
+            <h1>ADRESSE</h1>
+            <address>
+                Algade 65<br>
+                5500 Middelfart
+            </address>
+        </div>
+
+        <div class="kontakt">
+            <h1>KONTAKT</h1>
+            <p>Telefon: +45 22 24 24 79</p>
+            <p>Email: info@emmyskaffebar.dk</p>
+        </div>
+
+        <div class="aabningstider">
+            <h1>ÅBNINGSTIDER</h1> 
+            <p>Mandag - Torsdag <br> 09:00 - 17:30 </p>
+            <p>Fredag <br> 09:00 - 18:00 </p>
+            <p>Lørdag & Søndag <br> 09:30 - 16:00 </p>
+        </div>
+
+        <div class="sociale-medier">
+            <h1>SOCIALE MEDIER</h1>
+            <a href="https://www.instagram.com/emmyskaffebar" aria-label="Emmys Kaffebar on Instagram">
+                <img src="../photos/Instagramlogo.svg" alt="Instagram logo" class="instalogo">
+            </a>
+            <a href="https://www.facebook.com/emmyskaffebar/" aria-label="Emmys Kaffebar on Facebook">
+                <img src="../photos/facebooklogo.svg" alt="Facebook logo" class="facebooklogo">
+            </a>
+            <a href="https://www.tiktok.com/@emmyskaffebar" aria-label="Emmys Kaffebar on TikTok">
+                <img src="../photos/tiktoklogo.svg" alt="TikTok logo" class="tiktoklogo">
+            </a>
+        </div>
+    </div>
+
+    <div class="copyrights">
+        <p>© 2024 Emmys Kaffebar. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

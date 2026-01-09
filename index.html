@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmys Kaffebar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header>
+      <video class="hero-video" autoplay muted loop playsinline>
+          <source src="photos/hero.mp4" type="video/mp4">
+          Din browser understøtter ikke video.
+      </video>
+
+      <div class="navbar-wrapper">
+          <div class="logo-container">
+              <a href="index.html">
+                  <img src="photos/Emmys.svg" alt="Logo" class="logo">
+              </a>
+          </div>
+
+          <nav class="nav">
+              <a href="menu/menu.html">MENU</a>
+              <a href="book-bord/book-bord.html">BOOK BORD</a>
+              <a href="events/events.html">EVENTS</a>
+              <a href="om-os/om-os.html">OM OS</a>
+              <a href="kontakt/kontakt.html">KONTAKT</a>
+          </nav>
+      </div>
+
+      <div class="dropdown">
+          <input type="checkbox" id="burger-toggle" />
+          <label for="burger-toggle" class="burger-icon">
+              <img src="photos/brun-burgermenu.svg" alt="Burgermenu" />
+          </label>
+
+          <div class="dropdown-content">
+              <label for="burger-toggle" class="close-dropdown">×</label>
+              <a href="index.html" class="logo-link">
+                  <img src="photos/Emmys.svg" alt="Logo" class="logo">
+              </a>
+              <a href="menu/menu.html">MENU</a>
+              <a href="book-bord/book-bord.html">BOOK BORD</a>
+              <a href="events/events.html">EVENTS</a>
+              <a href="om-os/om-os.html">OM OS</a>
+              <a href="kontakt/kontakt.html">KONTAKT</a>
+          </div>
+      </div>
+  </header>
+
+  <!-- MARQUEE UNDER HERO -->
+<div class="marquee-wrapper">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>
+      Nyd en kop kaffe i hyggelige omgivelser • Nyd en kop kaffe i hyggelige omgivelser • Nyd en kop kaffe i hyggelige omgivelser • Nyd en kop kaffe i hyggelige omgivelser • Nyd en kop kaffe i hyggelige omgivelser • Nyd en kop kaffe i hyggelige omgivelser •
+    </span>
+  </div>
+</div>
+
+
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+      <section class="split-section1">
+          <div class="split left">
+              <img src="photos/kaffe.png" alt="kaffe">
+          </div>
+          <div class="split right">
+            <h2>Velkommen til Emmys Kaffebar</h2>
+              <p>Hos os er hver kop kaffe og hver bid mad <br>
+                lavet med kærlighed – helt fra bunden. <br>
+                Vi går op i det er hjemmelavet, gode råvarer og hyggelige stunder. <br>
+                Tag et øjeblik, slap af, og nyd smagen af det hjemmelavede.</p>
+
+                <a href="menu/menu.html">Tørstig eller lidt snack sulten?</a>
+          </div>
+      </section>
+
+      <section class="split-section2">
+          <div class="split left">
+            <h2>Deltag i vores hyggelige event & workshops!</h2>
+              <p>Kom og vær med til kreative og smagfulde oplevelser, <br>
+                     hvor du kan lære nye færdigheder, møde andre og have det sjovt. <br> 
+                     Tilmeld dig vores workshops og events i dag!</p>
+
+                     <a href="events/events.html">Klar til at lære noget nyt?</a>
+          </div>
+          <div class="split right">
+              <img src="photos/papirognaal.png" alt="kaffe">
+          </div>
+      </section>
+
+      <section class="split-section3">
+          <div class="split left">
+              <img src="photos/bog.png" alt="kaffe">
+          </div>
+          <div class="split right">
+              <h2>Om Emmys Kaffebar</h2>
+              <p>Hos Emmys Kaffebar skaber vi et varmt og indbydende sted, <br>
+                hvor kaffe, snacks og gode stunder går hånd i hånd. <br>
+                Vi elsker at byde vores gæster velkommen, <br>
+                uanset om det er til en hurtig kop kaffe eller <br>
+                en afslappet stund med venner og familie.</p>
+
+                <a href="om-os/om-os.html">En lille fortælling fra os</a>
+          </div>
+      </section>
+
+  </main>
+
+
+
+
+<footer>
+    <div class="footer-sections">
+        <div class="adresse">
+            <h1>ADRESSE</h1>
+            <address>
+                Algade 65<br>
+                5500 Middelfart
+            </address>
+        </div>
+
+        <div class="kontakt">
+            <h1>KONTAKT</h1>
+            <p>Telefon: +45 22 24 24 79</p>
+            <p>Email: info@emmyskaffebar.dk</p>
+        </div>
+
+        <div class="aabningstider">
+            <h1>ÅBNINGSTIDER</h1> 
+            <p>Mandag - Torsdag <br> 09:00 - 17:30 </p>
+            <p>Fredag <br> 09:00 - 18:00 </p>
+            <p>Lørdag & Søndag <br> 09:30 - 16:00 </p>
+        </div>
+
+        <div class="sociale-medier">
+            <h1>SOCIALE MEDIER</h1>
+            <a href="https://www.instagram.com/emmyskaffebar" aria-label="Emmys Kaffebar on Instagram">
+                <img src="./photos/Instagramlogo.svg" alt="Instagram logo" class="instalogo">
+            </a>
+            <a href="https://www.facebook.com/emmyskaffebar/" aria-label="Emmys Kaffebar on Facebook">
+                <img src="./photos/facebooklogo.svg" alt="Facebook logo" class="facebooklogo">
+            </a>
+            <a href="https://www.tiktok.com/@emmyskaffebar" aria-label="Emmys Kaffebar on TikTok">
+                <img src="./photos/tiktoklogo.svg" alt="TikTok logo" class="tiktoklogo">
+            </a>
+        </div>
+    </div>
+
+    <div class="copyrights">
+        <p>© 2024 Emmys Kaffebar. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

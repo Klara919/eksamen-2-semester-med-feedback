@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmys Kaffebar - MENU</title>
+    <link rel="stylesheet" href="menu.css">
+    <script src="menu.js" defer></script>
+  
+</head>
+<body>
+
+<header>
+
+        <div class="logo-container">
+        <a href="../index.html"><img src="../photos/Emmys.svg" alt="Logo" class="logo"> </a>
+        </div>
+
+    <nav class="nav">
+        <a href="../menu/menu.html" class="active">MENU</a>
+        <a href="../book-bord/book-bord.html">BOOK BORD</a>
+        <a href="../events/events.html">EVENTS</a>
+        <a href="../om-os/om-os.html">OM OS</a>
+        <a href="../kontakt/kontakt.html">KONTAKT</a>
+    </nav>
+
+   
+<div class="dropdown">
+    <input type="checkbox" id="burger-toggle" />
+
+    <!-- Burger-menu ikon -->
+        <label for="burger-toggle" class="burger-icon">
+            <img src="../photos/burgermenu.svg" alt="Burgermenu" />
+        </label>
+
+    <!-- Dropdown-menu -->
+            <div class="dropdown-content">
+
+            <!-- Lukke-kryds -->
+                <label for="burger-toggle" class="close-dropdown">×</label>
+
+            <!-- Logo -->
+                <a href="../index.html" class="logo-link">
+                    <img src="../photos/Emmys.svg" alt="Logo" class="logo">
+                </a>
+
+            <!-- Menu-links -->
+                <a href="../menu/menu.html">MENU</a>
+                <a href="../book-bord/book-bord.html">BOOK BORD</a>
+                <a href="../events/events.html">EVENTS</a>
+                <a href="../om-os/om-os.html">OM OS</a>
+                <a href="../kontakt/kontakt.html">KONTAKT</a>
+         </div>
+</div>
+</header>
+
+
+  <main class="menu-page">
+
+    <!-- Krummelurer (kun dekoration) -->
+    <img src="../photos/krummetop.png" alt="" class="menu-ornament menu-ornament--top">
+    <img src="../photos/snirkel.svg" alt="" class="menu-ornament menu-ornament--bottom">
+
+    <!-- Overskrift + tabs -->
+    <header class="menu-header">
+      <h1 class="menu-heading">MENU</h1>
+
+      <div class="menu-tabs" role="tablist">
+        <button class="menu-tab is-active" data-target="mad" role="tab" aria-selected="true"> MAD </button>
+        <button class="menu-tab" data-target="drikke" role="tab" aria-selected="false"> DRIKKE </button>
+      </div>
+    </header>
+
+    <!-- ========== MAD ========== -->
+    <section id="mad" class="menu-content is-visible" aria-label="Mad">
+      <div class="menu-columns">
+
+        <!-- MORGENMAD -->
+        <section class="menu-section">
+          <h2 class="menu-section-title">MORGENMAD</h2>
+
+        <article class="menu-item">
+            <h3>Hjemmebagt bolle</h3>
+            <p>
+              Pisket smør<br>
+              (Marmelade +10,-)
+            </p>
+            <p class="price">25,-</p>
+        </article>
+
+          <article class="menu-item">
+            <h3>Hjemmebagt bolle</h3>
+            <p>
+              Pisket smør, ost/skinke/spegepølse<br>
+              (1/2 avokado +12,-)
+            </p>
+            <p class="price">46,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Croissant</h3>
+            <p>
+              Bagt med 23% fransk AOP smør<br>
+              (Ost +12,-)
+            </p>
+            <p class="price">30,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Morgenvaffel</h3>
+            <p>
+              Lavet af banan, æg, glutenfri havregryn, toppet med skyr,<br>
+              sæsonens kompot, mandelcrunch
+            </p>
+            <p class="price">65,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Yoghurt</h3>
+            <p>
+              Skyr med hjemmelavet bærkompot og granola
+            </p>
+            <p class="price">55,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Øllebrød</h3>
+            <p>
+              Lavet af kernerugbrød og hvidtøl, toppet med flødeskum,<br>
+              mandelcrunch
+            </p>
+            <p class="price">55,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Kold grød</h3>
+            <p>
+              Overnight glutenfri havre/chia toppet med sæsonens kompot,<br>
+              mandelsmør, banan, friske bær, pistaciekerner og kakao nibs
+            </p>
+            <p class="price">65,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Varm grød</h3>
+            <p>
+              Lavet af glutenfri havregryn, toppet med akaciehonning,<br>
+              sæsonens kompot, banan, friske bær, kokosflager og kakaonibs
+            </p>
+            <p class="price">65,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Morgentallerken</h3>
+            <p>
+              Hjemmebagt bolle, smør, ost, marmelade, rugbrød, skinke,<br>
+              skyr m/bærkompot og granola, blødkogt æg, dagens kage, frisk frugt<br>
+              (Øllebrød med flødeskum +15,-)
+            </p>
+            <p class="price">109,-</p>
+          </article>
+
+          <p class="menu-subnote">
+            Morgentallerken serveres kun indtil kl. 12.30
+          </p>
+        </section>
+
+        <!-- FROKOST + KAGE -->
+        <section class="menu-section">
+          <h2 class="menu-section-title">FROKOST</h2>
+
+          <article class="menu-item">
+            <h3>Laksesandwich</h3>
+            <p>
+              Rugbrød, friskrøget laks, salat, avokado, rød peber,<br>
+              basilikumspesto, mayo
+            </p>
+            <p class="price">99,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Tunsandwich</h3>
+            <p>
+              Rugbrød, hjemmerørt tun m/kapers/rødløg/citron, avokado,<br>
+              hjemmesyltede rødløg, salat
+            </p>
+            <p class="price">99,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Avokadotoast</h3>
+            <p>
+              Surdejstoastbrød, avokado, chilihummus, peberfrugtpesto,<br>
+              hampfrø, purløg<br>
+              (æg +12,-)
+            </p>
+            <p class="price">89,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Surdejssandwich</h3>
+            <p>
+              Smørristet surdejstoastbrød, parmaskinke, mozzarella,<br>
+              basilikumspesto, gulerod, ruccola, semidried tomater
+            </p>
+            <p class="price">105,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Salat</h3>
+            <p>
+              Sort quinoa, spidskål, salat, gulerod, avokado, peberfrugt,<br>
+              edamamebønner, hummus, peberfrugtpesto, feta, oliven<br>
+              (æg +12,-)<br>
+              (Hjemmerørt tun +15,-)<br>
+              (Koldrøget laks +15,-)<br>
+              (Surdejstoastbrød +12,-)
+            </p>
+            <p class="price">105,-</p>
+          </article>
+
+          <h2 class="menu-section-title menu-section-title--kage">KAGE</h2>
+
+          <article class="menu-item">
+            <h3>Hjemmebag</h3>
+            <p>
+             Se vores udvalg af dagens og sæsonens mange <br>
+             hjemmelavede kager i kageskabet
+            </p>
+          </article>
+        </section>
+      </div>
+
+      <p class="menu-note">
+        *Husk at være opmærksom på allergener, da vores mad og kage bliver lavet i
+        køkken, hvor der findes nødder, gluten og mælkeprodukter.
+      </p>
+    </section>
+
+    <!-- ========== DRIKKE ========== -->
+    <section id="drikke" class="menu-content" aria-label="Drikke">
+      <div class="menu-columns">
+
+        <!-- Venstre kolonne: varme drikke, shakes, smoothies -->
+        <section class="menu-section">
+          <h2 class="menu-section-title">VARME DRIKKE</h2>
+
+          <article class="menu-item">
+            <h3>Americano</h3>
+            <p>Dobbelt shot</p>
+            <p class="price">37,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Cappuccino</h3>
+            <p>Dobbelt shot</p>
+            <p class="price">42,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Flat white</h3>
+            <p>Dobbelt shot</p>
+            <p class="price">42,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Espresso</h3>
+            <p>Dobbelt shot</p>
+            <p class="price">30,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Cortado</h3>
+            <p>Dobbelt shot</p>
+            <p class="price">40,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Caffè Latte</h3>
+            <p>Dobbelt shot</p>
+            <p class="price">48,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Varm chokolade</h3>
+            <p>
+              Lavet af enten mørk eller lys Callebaut chokolade<br>
+              (Flødeskum +2,-)<br>
+              (Skumfluffer +4,-)
+            </p>
+            <p class="price">48,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Filterkaffe i kande</h3>
+            <p>1 pers / 2 pers</p>
+            <p class="price">42,- / 84,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Chai latte</h3>
+            <p>Spicy, vanilie</p>
+            <p class="price">48,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Te</h3>
+            <p>Se og duft til vores udvalg af te ved kassen</p>
+            <p class="price">35,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Matcha Latte</h3>
+            <p>Japansk grøn te – Ceremonial grade</p>
+            <p class="price">55,-</p>
+          </article>
+
+          <!-- Shakes -->
+          <h2 class="menu-section-title">SHAKES</h2>
+
+          <article class="menu-item">
+            <h3>Den søde røde</h3>
+            <p>Jordbær, vaniliemælk</p>
+            <p class="price">55,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Den søde blå</h3>
+            <p>Jordbær, blåbær, banan, vaniliemælk</p>
+            <p class="price">55,-</p>
+          </article>
+
+          <!-- Smoothies -->
+          <h2 class="menu-section-title">SMOOTHIES</h2>
+
+          <article class="menu-item">
+            <h3>Greenie</h3>
+            <p>Spinat, avocado, ingefær, lime, æblejuice, mandelmælk</p>
+            <p class="price">59,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Mango</h3>
+            <p>
+              Mango, ananas, banan, dadel, mynte, havremælk<br>
+              (Whey 100 proteinpulver +15,-)
+            </p>
+            <p class="price">59,-</p>
+          </article>
+        </section>
+
+        <!-- Højre kolonne: kolde drikke, vin, øl -->
+        <section class="menu-section">
+          <h2 class="menu-section-title">KOLDE DRIKKE</h2>
+
+          <article class="menu-item">
+            <h3>Iskaffe</h3>
+            <p>Dobbelt espresso, mælk, valgfri sirup karamel/vanilie</p>
+            <p class="price">46,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Ismatcha</h3>
+            <p>Ægte japansk grøn te med mælk og isterninger</p>
+            <p class="price">55,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Ischai</h3>
+            <p>Spicy, vanilie, vanilie u/koffein og sukker, mælk, isterninger</p>
+            <p class="price">48,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Iste</h3>
+            <p>Ferskensmag, isterninger, frisk citron</p>
+            <p class="price">35,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Coca Cola, Cola Zero, Sportscola</h3>
+            <p class="price">35,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Søbogård Most</h3>
+            <p>Økologisk – Æble, Appelsin, Hyldeblomst, Rabarber</p>
+            <p class="price">39,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Raw Culture Kombucha</h3>
+            <p>Fermenteret te med brus – Hyldeblomst, Hindbær, Æble</p>
+            <p class="price">49,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Cocio</h3>
+            <p class="price">35,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Danskvand med citrus</h3>
+            <p class="price">35,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Isvand</h3>
+            <p>Glas/Kande</p>
+            <p class="price">5,- / 20,-</p>
+          </article>
+
+          <!-- Vin -->
+          <h2 class="menu-section-title">VIN</h2>
+
+          <article class="menu-item">
+            <h3>Rødvin</h3>
+            <p>Pinot noir, Chile</p>
+            <p class="price">glas/flaske 59,- / 299,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Hvidvin</h3>
+            <p>Chardonnay, Chile</p>
+            <p class="price">glas/flaske 59,- / 299,-</p>
+          </article>
+
+          <article class="menu-item">
+            <h3>Rosé</h3>
+            <p>Cosecha, Spanien</p>
+            <p class="price">glas/flaske 59,- / 299,-</p>
+          </article>
+
+          <!-- Øl -->
+          <h2 class="menu-section-title">ØL</h2>
+
+          <article class="menu-item">
+            <h3>Ørbæk Bryggeri</h3>
+            <p>
+              Se vores udvalg af almindelige og alkoholfri øl i baren
+              fra Ørbæk Bryggeri, 33 cl
+            </p>
+            <p class="price">49,-</p>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <script src="menu.js"></script>
+    
+</main>
+
+<footer>
+    <div class="footer-sections">
+        <div class="adresse">
+            <h1>ADRESSE</h1>
+            <address>
+                Algade 65<br>
+                5500 Middelfart
+            </address>
+        </div>
+
+        <div class="kontakt">
+            <h1>KONTAKT</h1>
+            <p>Telefon: +45 22 24 24 79</p>
+            <p>Email: info@emmyskaffebar.dk</p>
+        </div>
+
+        <div class="aabningstider">
+            <h1>ÅBNINGSTIDER</h1> 
+            <p>Mandag - Torsdag <br> 09:00 - 17:30 </p>
+            <p>Fredag <br> 09:00 - 18:00 </p>
+            <p>Lørdag & Søndag <br> 09:30 - 16:00 </p>
+        </div>
+
+        <div class="sociale-medier">
+            <h1>SOCIALE MEDIER</h1>
+            <a href="https://www.instagram.com/emmyskaffebar" aria-label="Emmys Kaffebar on Instagram">
+                <img src="../photos/Instagramlogo.svg" alt="Instagram logo" class="instalogo">
+            </a>
+            <a href="https://www.facebook.com/emmyskaffebar/" aria-label="Emmys Kaffebar on Facebook">
+                <img src="../photos/facebooklogo.svg" alt="Facebook logo" class="facebooklogo">
+            </a>
+            <a href="https://www.tiktok.com/@emmyskaffebar" aria-label="Emmys Kaffebar on TikTok">
+                <img src="../photos/tiktoklogo.svg" alt="TikTok logo" class="tiktoklogo">
+            </a>
+        </div>
+    </div>
+
+    <div class="copyrights">
+        <p>© 2024 Emmys Kaffebar. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

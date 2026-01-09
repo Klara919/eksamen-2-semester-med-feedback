@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmys Kaffebar - KONTAKT</title>
+    <link rel="stylesheet" href="kontakt.css">
+     <script src="kontakt.js" defer></script>
+</head>
+<body>
+
+ <header>
+
+        <div class="logo-container">
+        <a href="../index.html"><img src="../photos/Emmys.svg" alt="Logo" class="logo"> </a>
+        </div>
+
+    <nav class="nav">
+        <a href="../menu/menu.html">MENU</a>
+        <a href="../book-bord/book-bord.html">BOOK BORD</a>
+        <a href="../events/events.html">EVENTS</a>
+        <a href="../om-os/om-os.html">OM OS</a>
+        <a href="../kontakt/kontakt.html" class="active">KONTAKT</a>
+    </nav>
+
+   
+<div class="dropdown">
+    <input type="checkbox" id="burger-toggle" />
+
+    <!-- Burger-menu ikon -->
+        <label for="burger-toggle" class="burger-icon">
+            <img src="../photos/burgermenu.svg" alt="Burgermenu" />
+        </label>
+
+    <!-- Dropdown-menu -->
+            <div class="dropdown-content">
+
+            <!-- Lukke-kryds -->
+                <label for="burger-toggle" class="close-dropdown">×</label>
+
+            <!-- Logo -->
+                <a href="../index.html" class="logo-link">
+                    <img src="../photos/Emmys.svg" alt="Logo" class="logo">
+                </a>
+
+            <!-- Menu-links -->
+                <a href="../menu/menu.html">MENU</a>
+                <a href="../book-bord/book-bord.html">BOOK BORD</a>
+                <a href="../events/events.html">EVENTS</a>
+                <a href="../om-os/om-os.html">OM OS</a>
+                <a href="../kontakt/kontakt.html">KONTAKT</a>
+         </div>
+</div>
+</header>
+
+
+<main>
+    <!--mailbox container /parent-->
+    <div class="mailbox">
+
+        <div id="mailboxtekst">
+            <h2>Har du spørgsmål til os?</h2>
+            <p>Så kan du ringe til os på +45 22 24 24 79 mellem 9:00 og 17:00,<br>eller sende os en mail med alle dine spørgsmål.</p>
+            <p>Vi glæder os til at høre fra dig!</p>
+        </div>
+
+        <img src="icons/Frame 73.png" alt="Baggrund" class="baggrund">
+        <div id="popup">
+                <button id="CloseB" onclick="window.location.reload()" onclick="Closepop()"><img src="icons/Kryds.svg" alt=""></button>
+                <p>Tak for din mail, beskeden er nu sendt afsted!<br>vi vender tilbage til dig hurtigst muligt.</p>
+                </div>
+        <div id="formular">
+            <form action="#" method="post" class="sendbox">
+                <label for="name">Navn: </label><br>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">E-mail: </label><br>
+                <input type="email" id="email" name="email"><br><br>
+                
+                <label for="message">Besked: </label><br>
+                <textarea id="message" name="message"></textarea><br><br>
+            </form>   
+            <img src="icons/Frame 71.png" alt="formular" id="paper">
+        </div>
+
+        <img src="icons/Frame 70.png" alt="envelope" class="envelope">
+
+         <button id="button" onclick="Sendb()"><p>Send</p></button>
+
+    </div>
+   
+    <div class="some">
+
+        <div id="sometekst">
+            <h2>Kan du ikke få nok af os?</h2>
+            <p>Følg med på Instagram, Facebook eller Tiktok, og se hvad der sker!</p>
+        </div>
+        
+        <div class="ikoner">
+            <div id="instagram">
+                <a href="https://www.instagram.com/emmyskaffebar/?hl=da"><img src="icons/teenyicons_instagram-solid.png" alt="instagram"></a>
+            </div>
+
+            <div id="facebook">
+                <a href="https://www.facebook.com/emmyskaffebar/?locale=da_DK"><img src="icons/Vector.png" alt="facebook"></a>
+                
+            </div>
+
+            <div id="tiktok">
+                <a href="https://www.tiktok.com/discover/emmys-kaffebar"><img src="icons/tiktok.png" alt="tiktok"></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="lokation">
+        <h2>Her finder du os</h2>
+        <div id="pin">
+            <img src="icons/Pin.png" alt="klik her, for at komme til maps">
+        </div>    
+        <a href="https://maps.app.goo.gl/TDw8MyafjPMd7q6Y7"><img src="icons/Frame 24.png" alt="maps" class="maps"></a>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-sections">
+        <div class="adresse">
+            <h1>ADRESSE</h1>
+            <address>
+                Algade 65<br>
+                5500 Middelfart
+            </address>
+        </div>
+
+        <div class="kontakt">
+            <h1>KONTAKT</h1>
+            <p>Telefon: +45 22 24 24 79</p>
+            <p>Email: info@emmyskaffebar.dk</p>
+        </div>
+
+        <div class="aabningstider">
+            <h1>ÅBNINGSTIDER</h1> 
+            <p>Mandag - Torsdag <br> 09:00 - 17:30 </p>
+            <p>Fredag <br> 09:00 - 18:00 </p>
+            <p>Lørdag & Søndag <br> 09:30 - 16:00 </p>
+        </div>
+
+        <div class="sociale-medier">
+            <h1>SOCIALE MEDIER</h1>
+            <a href="https://www.instagram.com/emmyskaffebar" aria-label="Emmys Kaffebar on Instagram">
+                <img src="../photos/Instagramlogo.svg" alt="Instagram logo" class="instalogo">
+            </a>
+            <a href="https://www.facebook.com/emmyskaffebar/" aria-label="Emmys Kaffebar on Facebook">
+                <img src="../photos/facebooklogo.svg" alt="Facebook logo" class="facebooklogo">
+            </a>
+            <a href="https://www.tiktok.com/@emmyskaffebar" aria-label="Emmys Kaffebar on TikTok">
+                <img src="../photos/tiktoklogo.svg" alt="TikTok logo" class="tiktoklogo">
+            </a>
+        </div>
+    </div>
+
+    <div class="copyrights">
+        <p>© 2024 Emmys Kaffebar. All rights reserved.</p>
+    </div>
+</footer>
+    
+
+
+</body>
+</html>
