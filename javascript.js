@@ -21,5 +21,5 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const wrapper = document.querySelector('.navbar-wrapper');
         wrapper.classList.add('show');
-    }, 2000); // 2 sekunder delay
+    }, 1000); // 2 sekunder delay
 });
