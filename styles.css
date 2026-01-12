@@ -469,6 +469,7 @@ footer .copyrights {
 
     .dropdown {
         display: block;
+        z-index: 1000;
     }
 
     /* Fjern navbar baggrund på mobil */
